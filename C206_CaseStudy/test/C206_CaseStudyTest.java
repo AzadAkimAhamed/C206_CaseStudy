@@ -18,8 +18,10 @@ public class C206_CaseStudyTest {
 	private Item veggie1;
 	private Item drink1;
 	private Item drink2;
+	private Item drink3;
 	private Item fruit1;
 	private Item fruit2;
+	private Item fruit3;
 	
 	private ArrayList<Item> item_bank;
 	
@@ -44,13 +46,15 @@ public class C206_CaseStudyTest {
 		
 		billList = new ArrayList<Bill>();
 		
-		western1 = new Item(1, "", "", "", 3.50);
-		asian1 = new Item(1, "", "", "", 3.50);
-		veggie1 = new Item(1, "", "", "", 3.50);
-		drink1 = new Item(1, "", "", "", 3.50);
-		drink2 = new Item(1, "", "", "", 3.50);
-		fruit1 = new Item(1, "", "", "", 3.50);
-		fruit2 = new Item(1, "", "", "", 3.50);
+		western1 = new Item(1, "Western", "Bolognese Pasta", "Spaghetti, Minced meat, Tomato sauce ", 3.50);
+		asian1 = new Item(6, "Asian", "Nasi Lemak", "Fragrant rice, Sambal, Eggs", 3.50);
+		veggie1 = new Item(11, "Vegeterian", "Mixed Vegie Rice", "Rice, Mixed Vegetables", 3.50);
+		drink1 = new Item(16, "Cold beverage", "Strawberry tea", "Strawberry tea ", 3.50);
+		drink2 = new Item(21, "Juice", "Watermelon juice", "Crushed watermelon with ice", 3.50);
+		drink3 = new Item(26, "Hot beverage", "Hot Milo", "Hot Milo", 3.50);
+		fruit1 = new Item(31, "Fruit", "Watermelon", "-", 3.50);
+		fruit2 = new Item(31, "Fruit", "Apple", "-", 3.50);
+		fruit3 = new Item(32, "Fruit", "Papaya", "-", 3.50);
 		
 		item_bank = new ArrayList<Item>(); // will contain 35 items (7 of each type)
 		
@@ -72,27 +76,27 @@ public class C206_CaseStudyTest {
 	}
 	
 	@Test // view items in the item bank 
-	public void testViewItem() {
+	public void testretrieveAllItem() {
 		// Test if Item list is not null but empty, so that can add a new item
-		assertNotNull("Test if there is valid item_bank arraylist to add to", item_bank);
+		assertNotNull("Test if there is valid item_bank arraylist to add Item object to", item_bank);
 		
-		//test if the list of item_book retrieved from the C206_CaseStudy is empty
+		//test if the list of item_bank retrieved from the C206_CaseStudy is empty
 		String all_Item= C206_CaseStudy.retrieveAll_items(item_bank);
 		String testOutput = "";
-		assertEquals("Check that item_bank", testOutput, all_Item);
+		assertEquals("Check that item_bank is empty", testOutput, all_Item);
 		
 		//Given an empty list, after adding 2 items, test if the size of the list is 2
 		C206_CaseStudy.addItem(item_bank, western1);
 		C206_CaseStudy.addItem(item_bank, asian1);
-		assertEquals("Test if that item_bank arraylist size is 2?", 2, item_bank.size());
+		assertEquals("Test if the item_bank arraylist size is 2", 2, item_bank.size());
 		
 		//test if the expected output string same as the list of items retrieved from the C206_CaseStudy
 		all_Item= C206_CaseStudy.retrieveAll_items(item_bank);
 
-		testOutput = String.format("%-10d %-10s %-10s %-100s %-20.2f\n", 91, "", "", "", 3.0);
-		testOutput += String.format("%-10d %-10s %-10s %-100s %-20.2f\n", 87, "", "", "", 3.50);
+		testOutput = String.format("%-10d %-10s %-10s %-100s %-20.2f\n", 1, "Western", "Bolognese Pasta", "Spaghetti, Minced meat, Tomato sauce ", 3.50);
+		testOutput += String.format("%-10d %-10s %-10s %-100s %-20.2f\n", 6, "Asian", "Nasi Lemak", "Fragrant rice, Sambal, Eggs", 3.50);
 	
-		assertEquals("Check that ViewAll_items", testOutput, all_Item);
+		assertEquals("Check that all the menu_items retrieved from the item bank is the same as the output made to test", testOutput, all_Item);
 	}
 	
 	@Test // add items in the item bank
@@ -116,7 +120,21 @@ public class C206_CaseStudyTest {
 	
 	@Test // delete items from the item bank 
 	public void testDeleteItem() {
+		// One time added; one removed
+		assertNotNull("Test if there is valid item_bank arrayList to add item to so that it can be deleted from the arrayList", item_bank);
+		C206_CaseStudy.addItem(item_bank, western1);
+		assertEquals("Test if that item_bank arraylist size is 1?", 1, item_bank.size());
+		C206_CaseStudy.deleteItem(item_bank, western1.get_itemID());
+		assertEquals(0, item_bank.size());
 		
+		boolean exists = false;
+		for (Item i: item_bank) {
+			if (i.equals(i.get_itemID())) {
+				exists = true;
+			}
+		}
+		
+		assertFalse(exists);
 	}
 	
 	@Test// Sprint 2 - Update items that are already in the item bank
@@ -270,8 +288,11 @@ public class C206_CaseStudyTest {
 		veggie1 = null;
 		drink1 = null;
 		drink2 = null;
+		drink3 = null;
 		fruit1 = null;
 		fruit2 = null;
+		fruit3 = null;
+		item_bank = null;
 		
 		dm1 = null;
 		dm2 = null;

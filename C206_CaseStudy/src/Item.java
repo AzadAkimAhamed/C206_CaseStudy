@@ -47,7 +47,7 @@ public class Item {
 		this.itemID = itemID;
 	}
 	
-	public void setCategory(String category) {
+	public void set_Category(String category) {
 		this.category = category;
 	}
 	

@@ -23,50 +23,56 @@ public class C206_CaseStudy {
 				"Green Tea", "Grapes", "Honeydew", "Mango"));
 
 		ArrayList<Item> item_bank = new ArrayList<Item>(); // will contain 35 items (7 of each type)
-		item_bank.add(new Item(1, "", "", "", 3.50)); // Western1 - dailymenu1
-		item_bank.add(new Item(6, "", "", "", 3.50)); // Asian1 - dailymenu1
-		item_bank.add(new Item(11, "", "", "", 3.50)); // Veggie1 - dailymenu1
-		item_bank.add(new Item(16, "", "", "", 3.50)); // Drink1 - dailymenu1
-		item_bank.add(new Item(21, "", "", "", 3.50)); // Drink2 - dailymenu1
-		item_bank.add(new Item(26, "", "", "", 3.50)); // Drink3 - dailymenu1
-		item_bank.add(new Item(31, "", "", "", 3.50)); // Fruit1 - dailymenu1
-		item_bank.add(new Item(31, "", "", "", 3.50)); // Fruit2 - dailymenu1
-
-		item_bank.add(new Item(2, "", "", "", 3.50)); // ... - dailymenu2
-		item_bank.add(new Item(7, "", "", "", 3.50));
-		item_bank.add(new Item(12, "", "", "", 3.50));
-		item_bank.add(new Item(17, "", "", "", 3.50));
-		item_bank.add(new Item(22, "", "", "", 3.50));
-		item_bank.add(new Item(27, "", "", "", 3.50));
-		item_bank.add(new Item(32, "", "", "", 3.50));
-		item_bank.add(new Item(32, "", "", "", 3.50));
-
-		item_bank.add(new Item(3, "", "", "", 3.50)); // ... - dailymenu3
-		item_bank.add(new Item(8, "", "", "", 3.50));
-		item_bank.add(new Item(13, "", "", "", 3.50));
-		item_bank.add(new Item(18, "", "", "", 3.50));
-		item_bank.add(new Item(23, "", "", "", 3.50));
-		item_bank.add(new Item(28, "", "", "", 3.50));
-		item_bank.add(new Item(33, "", "", "", 3.50));
-		item_bank.add(new Item(33, "", "", "", 3.50));
-
-		item_bank.add(new Item(4, "", "", "", 3.50)); // ... - dailymenu4
-		item_bank.add(new Item(9, "", "", "", 3.50));
-		item_bank.add(new Item(14, "", "", "", 3.50));
-		item_bank.add(new Item(19, "", "", "", 3.50));
-		item_bank.add(new Item(24, "", "", "", 3.50));
-		item_bank.add(new Item(29, "", "", "", 3.50));
-		item_bank.add(new Item(34, "", "", "", 3.50));
-		item_bank.add(new Item(34, "", "", "", 3.50));
-
-		item_bank.add(new Item(5, "", "", "", 3.50)); // ... - dailymenu5
-		item_bank.add(new Item(10, "", "", "", 3.50));
-		item_bank.add(new Item(15, "", "", "", 3.50));
-		item_bank.add(new Item(20, "", "", "", 3.50));
-		item_bank.add(new Item(25, "", "", "", 3.50));
-		item_bank.add(new Item(30, "", "", "", 3.50));
-		item_bank.add(new Item(35, "", "", "", 3.50));
-		item_bank.add(new Item(35, "", "", "", 3.50));
+		item_bank.add(new Item(1, "Western", "Bolognese Pasta", "Spaghetti, Minced meat, Tomato sauce ", 3.50)); // Western1 - dailymenu1
+		item_bank.add(new Item(6, "Asian", "Nasi Lemak", "Fragrant rice, Sambal, Eggs", 3.50)); // Asian1 - dailymenu1
+		item_bank.add(new Item(11, "Vegeterian", "Mixed Vegie Rice", "Rice, Mixed Vegetables", 3.50)); // Veggie1 - dailymenu1
+		item_bank.add(new Item(16, "Cold beverage", "Strawberry tea", "Strawberry tea ", 3.50)); // Drink1 - dailymenu1
+		item_bank.add(new Item(21, "Juice", "Watermelon juice", "Crushed watermelon with ice", 3.50)); // Drink2 - dailymenu1
+		item_bank.add(new Item(26, "Hot beverage", "Hot Milo", "Hot Milo", 3.50)); // Drink3 - dailymenu1
+		item_bank.add(new Item(31, "Fruit", "Watermelon", "-", 3.50)); // Fruit1 - dailymenu1
+		item_bank.add(new Item(31, "Fruit", "Apple", "-", 3.50)); // Fruit2 - dailymenu1
+		item_bank.add(new Item(31, "Fruit", "Orange", "-", 3.50)); // Fruit3 - dailymenu1
+		
+		item_bank.add(new Item(2, "Western", "Aglio Olio", "Sphaghetti, Mushroom, Chicken", 3.50)); //... - dailymenu2
+		item_bank.add(new Item(7, "Asian", "Bento rice", "Rice, Chicken Set, Vegetables", 3.50)); 
+		item_bank.add(new Item(12, "Vegeterian", "Chicken Rice", "Fragrant rice, Chicken, Sambal", 3.50)); 
+		item_bank.add(new Item(17, "Cold beverage", "Peach tea", "Peach tea ", 3.50)); 
+		item_bank.add(new Item(22, "Juice", "Orange juice", "Crushed orange with ice", 3.50)); 
+		item_bank.add(new Item(27, "Hot beverage", "Hot milo", "Hot milo", 3.50)); 
+		item_bank.add(new Item(32, "Fruit", "Pear", "-", 3.50)); 
+		item_bank.add(new Item(32, "Fruit", "Apple", "-", 3.50)); 
+		item_bank.add(new Item(32, "Fruit", "Papaya", "-", 3.50));
+		
+		item_bank.add(new Item(3, "Western", "Bolognese Pasta", "Spaghetti, Minced meat, Tomato sauce ", 3.50)); //... - dailymenu3
+		item_bank.add(new Item(8, "Asian", "Nasi Lemak", "Fragrant rice, Sambal, Eggs", 3.50)); 
+		item_bank.add(new Item(13, "Vegeterian", "Mixed Vegie Rice", "Rice, Mixed Vegetables", 3.50)); 
+		item_bank.add(new Item(18, "Cold beverage", "Strawberry tea", "Strawberry tea ", 3.50)); 
+		item_bank.add(new Item(23, "Juice", "Orange juice", "Crushed orange with ice", 3.50));
+		item_bank.add(new Item(28, "Hot beverage", "Hot milo", "Hot milo", 3.50)); 
+		item_bank.add(new Item(33, "Fruit", "Watermelon", "-", 3.50)); 
+		item_bank.add(new Item(33, "Fruit", "Apple", "-", 3.50)); 
+		item_bank.add(new Item(33, "Fruit", "Orange", "-", 3.50)); 
+		
+		
+		item_bank.add(new Item(4, "Western", "Aglio Olio", "Sphaghetti, Mushroom, Chicken", 3.50)); //... - dailymenu4
+		item_bank.add(new Item(9, "Asian", "Bento rice", "Rice, Chicken Set, Vegetables", 3.50)); 
+		item_bank.add(new Item(14, "Vegeterian", "Mixed Vegie Rice", "Rice, Mixed Vegetables", 3.50)); 
+		item_bank.add(new Item(19, "Cold beverage", "Peach tea", "Peach tea ", 3.50)); 
+		item_bank.add(new Item(24, "Juice", "Orange juice", "Crushed orange with ice", 3.50)); 
+		item_bank.add(new Item(29, "Hot beverage", "Hot milo", "Hot milo", 3.50)); 
+		item_bank.add(new Item(34, "Fruit", "Papaya", "-", 3.50)); 
+		item_bank.add(new Item(34, "Fruit", "Watermelon", "-", 3.50)); 
+		item_bank.add(new Item(34, "Fruit", "Orange", "-", 3.50)); 
+		
+		item_bank.add(new Item(5, "Western", "Fish & Chips", "Fried fish, Lemon, Tartar Sauce", 3.50)); //... - dailymenu5
+		item_bank.add(new Item(10, "Asian", "Ramen", "Noodles, Soup, Chicken", 3.50)); 
+		item_bank.add(new Item(15, "Vegeterian", "Egg wrap", "Tortilla wrap, Egg, Lettuce", 3.50)); 
+		item_bank.add(new Item(20, "Cold beverage", "Peach tea", "Peach tea ", 3.50)); 
+		item_bank.add(new Item(25, "Juice", "Orange juice", "Crushed orange with ice", 3.50));  
+		item_bank.add(new Item(30, "Hot beverage", "Hot milo", "Hot milo", 3.50)); 
+		item_bank.add(new Item(35, "Fruit", "Papaya", "-", 3.50)); 
+		item_bank.add(new Item(35, "Fruit", "Orange", "-", 3.50)); 
+		item_bank.add(new Item(35, "Fruit", "Orange", "-", 3.50));
 
 		int loginoption = 0;
 		int adminoption = 0;
@@ -134,12 +140,25 @@ public class C206_CaseStudy {
 						menuItemMenu();
 						int menuitem = Helper.readInt("Enter an option > ");
 						if (menuitem == 1) {
-							//
+							viewAll_items(item_bank);
 						} else if (menuitem == 2) {
-							//
+							setHeader("ADD ITEM");
+							// Add item
+							Item new_item = inputDetails();
+							addItem(item_bank, new_item);
+							System.out.println("Item added!");
 						} else if (menuitem == 3) {
-							//
-						} else {
+							setHeader("DELETE ITEM");	
+							int delete_id = Helper.readInt("Enter an Item ID to delete: ");
+							C206_CaseStudy.deleteItem(item_bank, delete_id);
+							System.out.println("Item deleted!");
+						} else if (menuitem == 4) {
+							// Update item
+							setHeader("UPDATE");
+							updateItem(item_bank, menuitem);
+						} 
+						
+						else {
 							System.out.println("Invalid option");
 						}
 					} else if (adminoption == 3) {
@@ -154,7 +173,10 @@ public class C206_CaseStudy {
 							deleteWeeklyMenu(weeklyMenuList);
 						} else if (weeklymenu == 4) {
 							updateWeeklyMenu(weeklyMenuList);
-						} else {
+						} else if (weeklymenu == 5) {
+							System.out.println("Goodbye!");
+						}
+						else {
 							System.out.println("Invalid option");
 						}
 					} else if (adminoption == 4) {
@@ -226,19 +248,21 @@ public class C206_CaseStudy {
 
 	public static void accountMenu() {
 		C206_CaseStudy.setHeader("MAINTAIN ACCOUNT");
-		System.out.println("1. Add account");
-		System.out.println("2. View account");
+		System.out.println("1. View account");
+		System.out.println("2. Add account");
 		System.out.println("3. Delete account");
-		System.out.println("4. Quit");
+		System.out.println("4. Update account");
+		System.out.println("5. Quit");
 		Helper.line(80, "-");
 	}
 
 	public static void menuItemMenu() {
 		C206_CaseStudy.setHeader("MAINTAIN MENU ITEMS");
-		System.out.println("1. Add menu items");
-		System.out.println("2. View menu items");
+		System.out.println("1. View menu items");
+		System.out.println("2. Add menu items");
 		System.out.println("3. Delete menu items");
-		System.out.println("4. Quit");
+		System.out.println("4. Update menu items");
+		System.out.println("5. Quit");
 		Helper.line(80, "-");
 	}
 
@@ -289,81 +313,78 @@ public class C206_CaseStudy {
 		Helper.line(300, "-");
 	}
 
-	// ================================= Option 1 View items
-	// =================================
-	public static String retrieveAll_items(ArrayList<Item> item_bank) {
-		String output = "";
+	//================================= Option 1 View items =================================
+		public static String retrieveAll_items(ArrayList<Item> item_bank) {
+			String output = "";
 
-		for (int i = 0; i < item_bank.size(); i++) {
+			for (int i = 0; i < item_bank.size(); i++) {
 
-			output += String.format("%-10d %-10s %-10s %-100s %-20.2f\n", item_bank.get(i).get_itemID(),
-					item_bank.get(i).get_Category(), item_bank.get(i).get_Name(), item_bank.get(i).get_Description(),
-					item_bank.get(i).get_Price());
+				output += String.format("%-10d %-10s %-10s %-100s %-20.2f\n", item_bank.get(i).get_itemID(),
+						item_bank.get(i).get_Category(),
+						item_bank.get(i).get_Name(), 
+						item_bank.get(i).get_Description(),
+						item_bank.get(i).get_Price());
+			}
+			return output;
 		}
-		return output;
-	}
+		public static void viewAll_items(ArrayList<Item> item_bank) {
+			C206_CaseStudy.setHeader("VIEW ITEMS");
+			String output = String.format("%-10s %-10s %-10s %-100s %-20s\n", "ITEM ID", "CATEGORY",
+					"NAME", "DESCRIPTION","PRICE");
+			 output += retrieveAll_items(item_bank);	
+			System.out.println(output);
+		}
 
-	public static void viewAll_items(ArrayList<Item> item_bank) {
-		C206_CaseStudy.setHeader("VIEW ITEMS");
-		String output = String.format("%-10s %-10s %-10s %-100s %-20s\n", "ITEM ID", "CATEGORY", "NAME", "DESCRIPTION",
-				"PRICE");
-		output += retrieveAll_items(item_bank);
-		System.out.println(output);
-	}
+		//================================= Option 2 Add an item =================================
+		public static Item inputDetails() {
+			 int itemID = Helper.readInt("Enter item ID: ");
+			 String category = Helper.readString("Enter category: ");
+			 String name = Helper.readString("Enter name: ");
+			 String description = Helper.readString("Enter description: ");
+			 double price = Helper.readDouble("Enter price: ");
+			
+			 Item new_item = new Item(itemID, category, name, description, price);
+			return new_item;
+		}
+		
+		public static void addItem(ArrayList<Item> item_bank, Item new_item) {
+			
+			item_bank.add(new_item);
+			
+		}
 
-	// ================================= Option 2 Add an item
-	// =================================
-	public static Item inputDetails() {
-		int itemID = Helper.readInt("Enter item ID: ");
-		String category = Helper.readString("Enter category: ");
-		String name = Helper.readString("Enter name: ");
-		String description = Helper.readString("Enter description: ");
-		double price = Helper.readDouble("Enter price: ");
-
-		Item new_item = new Item(itemID, category, name, description, price);
-		return new_item;
-	}
-
-	public static void addItem(ArrayList<Item> item_bank, Item new_item) {
-
-		item_bank.add(new_item);
-
-	}
-
-	// ================================= Option 3 Delete an item
-	// =================================
-	public static void deleteItem(ArrayList<Item> item_bank, int itemID) {
-		boolean isDelete = false;
-
-		for (int i = 0; i < item_bank.size(); i++) {
-			if (itemID == (item_bank.get(i).get_itemID())) {
-				item_bank.remove(i);
-				isDelete = true;
+		//================================= Option 3 Delete an item =================================
+		public static void deleteItem(ArrayList<Item> item_bank, int itemID) {
+			boolean isDelete = false;
+			
+			for (int i = 0; i < item_bank.size(); i++) {
+				if (itemID==(item_bank.get(i).get_itemID())){
+					item_bank.remove(i);
+					isDelete = true;
+				}
 			}
 		}
-	}
 
-	// ================================= Option 4 Update an item
-	// =================================
-	public static void updateItem(ArrayList<Item> item_bank, int itemID) {
-		boolean isUpdate = false;
-		int new_itemID = Helper.readInt("Enter item ID: ");
-		String new_category = Helper.readString("Enter category: ");
-		String new_name = Helper.readString("Enter name: ");
-		String new_description = Helper.readString("Enter description: ");
-		double new_price = Helper.readDouble("Enter price: ");
-
-		for (int i = 0; i < item_bank.size(); i++) {
-			if (itemID == (item_bank.get(i).get_itemID())) {
-				item_bank.get(i).set_itemID(new_itemID);
-				item_bank.get(i).setCategory(new_category);
-				item_bank.get(i).set_Name(new_name);
-				item_bank.get(i).set_Description(new_description);
-				item_bank.get(i).set_Price();
-				isUpdate = true;
+		//================================= Option 4 Update an item =================================
+		public static void updateItem(ArrayList<Item> item_bank, int itemID) {
+			boolean isUpdate = false;
+			int new_itemID = Helper.readInt("Enter item ID: ");
+			 String new_category = Helper.readString("Enter category: ");
+			 String new_name = Helper.readString("Enter name: ");
+			 String new_description = Helper.readString("Enter description: ");
+			 double new_price = Helper.readDouble("Enter price: ");
+			
+			for (int i = 0; i < item_bank.size(); i++) {
+				if (itemID==(item_bank.get(i).get_itemID())){
+					item_bank.get(i).set_itemID(new_itemID);
+					item_bank.get(i).set_Category(new_category);
+					item_bank.get(i).set_Name(new_name);
+					item_bank.get(i).set_Description(new_description);
+					item_bank.get(i).set_Price();
+					isUpdate = true;
+				}
 			}
 		}
-	}
 
 	// ================================= Option 1 Create weekly menu
 	// =================================
