@@ -8,6 +8,11 @@ import org.junit.Test;
 
 public class C206_CaseStudyTest {
 	// prepare test data for the 7 items of the first daily menu
+	private Bill bills1;
+	private Bill bills2;
+	private Bill bills3;
+	private ArrayList<Bill> billList = new ArrayList<Bill>();
+	
 	private Item western1;
 	private Item asian1;
 	private Item veggie1;
@@ -33,6 +38,12 @@ public class C206_CaseStudyTest {
 	
 	@Before
 	public void setUp() throws Exception {
+		bills1 = new Bill(11, "Western cuisine", "Watermelon", "Orange juice", 4.00);
+		bills2 = new Bill(22, "Japanese cuisine", "Grapes", "Strawberry Tea", 3.60);
+		bills3 = new Bill(9, "Vegeterian food", "Orange", "Milo", 2.00);
+		
+		billList = new ArrayList<Bill>();
+		
 		western1 = new Item(1, "", "", "", 3.50);
 		asian1 = new Item(1, "", "", "", 3.50);
 		veggie1 = new Item(1, "", "", "", 3.50);
@@ -201,6 +212,57 @@ public class C206_CaseStudyTest {
 
 	}
 	
+	@Test
+	public void c206_test() {
+		//fail("Not yet implemented"); 
+		assertTrue("C206_CaseStudy_SampleTest ",true);
+	}
+	@Test
+	 public void testAddOrderBill() {
+		  assertNotNull("Test if there is an existing billList arrayList to add to", billList);
+		  C206_CaseStudy.addOrderBill(billList, bills1);
+		  assertEquals("Test if that billList arraylist size is 1?", 1, billList.size());
+		  assertSame("Test that Bill is added same as 1st item of the list?", bills1, billList.get(0));
+		  C206_CaseStudy.addOrderBill(billList, bills2);
+		  C206_CaseStudy.addOrderBill(billList, bills3);
+		  assertEquals("Test that billList arraylist size is 3?", 3, billList.size());
+		  assertSame("Test that orderList is added same as 3rd item of the list?", bills3, billList.get(2));
+
+	}
+	 @Test
+	 public void testViewOrderBill() {
+	  assertNotNull("Test if there is valid orderList arraylist to add to", billList);
+	  String allOrderBill= C206_CaseStudy.retreiveAllOrderBills(billList);
+	  String testOutput = "";
+	  assertEquals("Check that ViewOrderBills", testOutput, allOrderBill);
+	  C206_CaseStudy.addOrderBill(billList, bills1);
+	  C206_CaseStudy.addOrderBill(billList, bills2);
+	  C206_CaseStudy.addOrderBill(billList, bills3);
+	  assertEquals("Test if that billList arraylist size is 3?", 3, billList.size());
+	  allOrderBill= C206_CaseStudy.retreiveAllOrderBills(billList);
+	  testOutput += String.format("%-15d %-15s %-30s %-10s %-15.2f\n", 11, "Western cuisine", "Watermelon", "Orange juice", 4.00);
+	  testOutput += String.format("%-15d %-15s %-30s %-10s %-15.2f\n", 22, "Japanese cuisine", "Grapes", "Strawberry Tea", 3.60);
+	  testOutput += String.format("%-15d %-15s %-30s %-10s %-15.2f\n", 9, "Vegeterian food", "Orange", "Milo", 2.00);
+	  assertEquals("Check that ViewAllOrderBills", testOutput, allOrderBill);
+	  
+	  
+	 }
+	 @Test
+	 public void testDeleteOrderBill() {
+	  C206_CaseStudy.addOrderBill(billList, bills1);
+	  C206_CaseStudy.addOrderBill(billList, bills2);
+	  C206_CaseStudy.addOrderBill(billList, bills3);
+
+	  assertNotNull("Test if there is an existing billList arrayList to delete ", billList);
+	  C206_CaseStudy.deleteOrderBills(billList, bills1.getBill_id());
+	  assertEquals("Test if that billList arraylist size is 2?", 2, billList.size());
+	  C206_CaseStudy.deleteOrderBills(billList, bills2.getBill_id());
+	  assertEquals("Test that billList arraylist size is 1?", 1, billList.size());
+	  C206_CaseStudy.deleteOrderBills(billList, bills3.getBill_id());
+	  assertEquals("Test that billList arraylist size is 0?", 0, billList.size());
+	  
+	 }
+	
 	@After
 	public void tearDown() throws Exception {
 		western1 = null;
@@ -221,10 +283,6 @@ public class C206_CaseStudyTest {
 		weeklyMenuList = null;
 	}
 
-	@Test
-	public void c206_test() {
-		//fail("Not yet implemented"); 
-		assertTrue("C206_CaseStudy_SampleTest ",true);
-	}
+
 
 }

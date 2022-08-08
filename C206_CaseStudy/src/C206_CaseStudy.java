@@ -3,9 +3,14 @@ import java.util.ArrayList;
 public class C206_CaseStudy {
 
 	public static void main(String[] args) {
-				
+		ArrayList<Bill> billList = new ArrayList<Bill>();
+
+		billList.add(new Bill(11, "Western cuisine", "Watermelon", "Orange juice", 4.00));
+		billList.add(new Bill(22, "Japanese cuisine", "Grapes", "Strawberry Tea", 3.60));
+		billList.add(new Bill(9, "Vegeterian food", "Orange", "Milo", 2.00));
+
 		ArrayList<DailyMenu> weeklyMenuList = new ArrayList<DailyMenu>();
-		
+
 		weeklyMenuList.add(new DailyMenu(1, "Monday", "Spaghetti", "Chicken Rice", "Dumpling Noodle Soup",
 				"Low-fat Milk", "Apple Juice", "Milo", "Watermelon", "Honeydew", "Apple"));
 		weeklyMenuList.add(new DailyMenu(2, "Tuesday", "Burger with fries", "Fried Rice", "Fried Bee Hoon", "Ribena",
@@ -17,7 +22,6 @@ public class C206_CaseStudy {
 		weeklyMenuList.add(new DailyMenu(5, "Friday", "Pizza", "Fried noodles", "Kway Teo", "Milo", "Orange Juice",
 				"Green Tea", "Grapes", "Honeydew", "Mango"));
 
-
 		ArrayList<Item> item_bank = new ArrayList<Item>(); // will contain 35 items (7 of each type)
 		item_bank.add(new Item(1, "", "", "", 3.50)); // Western1 - dailymenu1
 		item_bank.add(new Item(6, "", "", "", 3.50)); // Asian1 - dailymenu1
@@ -27,43 +31,43 @@ public class C206_CaseStudy {
 		item_bank.add(new Item(26, "", "", "", 3.50)); // Drink3 - dailymenu1
 		item_bank.add(new Item(31, "", "", "", 3.50)); // Fruit1 - dailymenu1
 		item_bank.add(new Item(31, "", "", "", 3.50)); // Fruit2 - dailymenu1
-		
-		item_bank.add(new Item(2, "", "", "", 3.50)); //... - dailymenu2
-		item_bank.add(new Item(7, "", "", "", 3.50)); 
-		item_bank.add(new Item(12, "", "", "", 3.50)); 
-		item_bank.add(new Item(17, "", "", "", 3.50)); 
-		item_bank.add(new Item(22, "", "", "", 3.50)); 
-		item_bank.add(new Item(27, "", "", "", 3.50)); 
-		item_bank.add(new Item(32, "", "", "", 3.50)); 
-		item_bank.add(new Item(32, "", "", "", 3.50)); 
-		
-		item_bank.add(new Item(3, "", "", "", 3.50)); //... - dailymenu3
-		item_bank.add(new Item(8, "", "", "", 3.50)); 
-		item_bank.add(new Item(13, "", "", "", 3.50)); 
-		item_bank.add(new Item(18, "", "", "", 3.50)); 
+
+		item_bank.add(new Item(2, "", "", "", 3.50)); // ... - dailymenu2
+		item_bank.add(new Item(7, "", "", "", 3.50));
+		item_bank.add(new Item(12, "", "", "", 3.50));
+		item_bank.add(new Item(17, "", "", "", 3.50));
+		item_bank.add(new Item(22, "", "", "", 3.50));
+		item_bank.add(new Item(27, "", "", "", 3.50));
+		item_bank.add(new Item(32, "", "", "", 3.50));
+		item_bank.add(new Item(32, "", "", "", 3.50));
+
+		item_bank.add(new Item(3, "", "", "", 3.50)); // ... - dailymenu3
+		item_bank.add(new Item(8, "", "", "", 3.50));
+		item_bank.add(new Item(13, "", "", "", 3.50));
+		item_bank.add(new Item(18, "", "", "", 3.50));
 		item_bank.add(new Item(23, "", "", "", 3.50));
-		item_bank.add(new Item(28, "", "", "", 3.50)); 
-		item_bank.add(new Item(33, "", "", "", 3.50)); 
-		item_bank.add(new Item(33, "", "", "", 3.50)); 
-		
-		item_bank.add(new Item(4, "", "", "", 3.50)); //... - dailymenu4
-		item_bank.add(new Item(9, "", "", "", 3.50)); 
-		item_bank.add(new Item(14, "", "", "", 3.50)); 
-		item_bank.add(new Item(19, "", "", "", 3.50)); 
-		item_bank.add(new Item(24, "", "", "", 3.50)); 
-		item_bank.add(new Item(29, "", "", "", 3.50)); 
-		item_bank.add(new Item(34, "", "", "", 3.50)); 
-		item_bank.add(new Item(34, "", "", "", 3.50)); 
-		
-		item_bank.add(new Item(5, "", "", "", 3.50)); //... - dailymenu5
-		item_bank.add(new Item(10, "", "", "", 3.50)); 
-		item_bank.add(new Item(15, "", "", "", 3.50)); 
-		item_bank.add(new Item(20, "", "", "", 3.50)); 
-		item_bank.add(new Item(25, "", "", "", 3.50));  
-		item_bank.add(new Item(30, "", "", "", 3.50)); 
-		item_bank.add(new Item(35, "", "", "", 3.50)); 
-		item_bank.add(new Item(35, "", "", "", 3.50)); 
-	
+		item_bank.add(new Item(28, "", "", "", 3.50));
+		item_bank.add(new Item(33, "", "", "", 3.50));
+		item_bank.add(new Item(33, "", "", "", 3.50));
+
+		item_bank.add(new Item(4, "", "", "", 3.50)); // ... - dailymenu4
+		item_bank.add(new Item(9, "", "", "", 3.50));
+		item_bank.add(new Item(14, "", "", "", 3.50));
+		item_bank.add(new Item(19, "", "", "", 3.50));
+		item_bank.add(new Item(24, "", "", "", 3.50));
+		item_bank.add(new Item(29, "", "", "", 3.50));
+		item_bank.add(new Item(34, "", "", "", 3.50));
+		item_bank.add(new Item(34, "", "", "", 3.50));
+
+		item_bank.add(new Item(5, "", "", "", 3.50)); // ... - dailymenu5
+		item_bank.add(new Item(10, "", "", "", 3.50));
+		item_bank.add(new Item(15, "", "", "", 3.50));
+		item_bank.add(new Item(20, "", "", "", 3.50));
+		item_bank.add(new Item(25, "", "", "", 3.50));
+		item_bank.add(new Item(30, "", "", "", 3.50));
+		item_bank.add(new Item(35, "", "", "", 3.50));
+		item_bank.add(new Item(35, "", "", "", 3.50));
+
 		int loginoption = 0;
 		int adminoption = 0;
 		int useroption = 0;
@@ -265,7 +269,7 @@ public class C206_CaseStudy {
 		System.out.println("4. Quit");
 		Helper.line(80, "-");
 	}
-	
+
 	public static void subMenu() {
 		System.out.println("1. Western");
 		System.out.println("2. Asian");
@@ -284,68 +288,73 @@ public class C206_CaseStudy {
 		System.out.println(header);
 		Helper.line(300, "-");
 	}
-		//================================= Option 1 View items =================================
+
+	// ================================= Option 1 View items
+	// =================================
 	public static String retrieveAll_items(ArrayList<Item> item_bank) {
 		String output = "";
 
 		for (int i = 0; i < item_bank.size(); i++) {
 
 			output += String.format("%-10d %-10s %-10s %-100s %-20.2f\n", item_bank.get(i).get_itemID(),
-					item_bank.get(i).get_Category(),
-					item_bank.get(i).get_Name(), 
-					item_bank.get(i).get_Description(),
+					item_bank.get(i).get_Category(), item_bank.get(i).get_Name(), item_bank.get(i).get_Description(),
 					item_bank.get(i).get_Price());
 		}
 		return output;
 	}
+
 	public static void viewAll_items(ArrayList<Item> item_bank) {
 		C206_CaseStudy.setHeader("VIEW ITEMS");
-		String output = String.format("%-10s %-10s %-10s %-100s %-20s\n", "ITEM ID", "CATEGORY",
-				"NAME", "DESCRIPTION","PRICE");
-		 output += retrieveAll_items(item_bank);	
+		String output = String.format("%-10s %-10s %-10s %-100s %-20s\n", "ITEM ID", "CATEGORY", "NAME", "DESCRIPTION",
+				"PRICE");
+		output += retrieveAll_items(item_bank);
 		System.out.println(output);
 	}
-	
-	//================================= Option 2 Add an item =================================
+
+	// ================================= Option 2 Add an item
+	// =================================
 	public static Item inputDetails() {
-		 int itemID = Helper.readInt("Enter item ID: ");
-		 String category = Helper.readString("Enter category: ");
-		 String name = Helper.readString("Enter name: ");
-		 String description = Helper.readString("Enter description: ");
-		 double price = Helper.readDouble("Enter price: ");
-		
-		 Item new_item = new Item(itemID, category, name, description, price);
+		int itemID = Helper.readInt("Enter item ID: ");
+		String category = Helper.readString("Enter category: ");
+		String name = Helper.readString("Enter name: ");
+		String description = Helper.readString("Enter description: ");
+		double price = Helper.readDouble("Enter price: ");
+
+		Item new_item = new Item(itemID, category, name, description, price);
 		return new_item;
 	}
-	
+
 	public static void addItem(ArrayList<Item> item_bank, Item new_item) {
-		
+
 		item_bank.add(new_item);
-		
+
 	}
-	//================================= Option 3 Delete an item =================================
+
+	// ================================= Option 3 Delete an item
+	// =================================
 	public static void deleteItem(ArrayList<Item> item_bank, int itemID) {
 		boolean isDelete = false;
 
 		for (int i = 0; i < item_bank.size(); i++) {
-			if (itemID==(item_bank.get(i).get_itemID())){
+			if (itemID == (item_bank.get(i).get_itemID())) {
 				item_bank.remove(i);
 				isDelete = true;
 			}
 		}
 	}
-	
-	//================================= Option 4 Update an item =================================
+
+	// ================================= Option 4 Update an item
+	// =================================
 	public static void updateItem(ArrayList<Item> item_bank, int itemID) {
 		boolean isUpdate = false;
 		int new_itemID = Helper.readInt("Enter item ID: ");
-		 String new_category = Helper.readString("Enter category: ");
-		 String new_name = Helper.readString("Enter name: ");
-		 String new_description = Helper.readString("Enter description: ");
-		 double new_price = Helper.readDouble("Enter price: ");
-		
+		String new_category = Helper.readString("Enter category: ");
+		String new_name = Helper.readString("Enter name: ");
+		String new_description = Helper.readString("Enter description: ");
+		double new_price = Helper.readDouble("Enter price: ");
+
 		for (int i = 0; i < item_bank.size(); i++) {
-			if (itemID==(item_bank.get(i).get_itemID())){
+			if (itemID == (item_bank.get(i).get_itemID())) {
 				item_bank.get(i).set_itemID(new_itemID);
 				item_bank.get(i).setCategory(new_category);
 				item_bank.get(i).set_Name(new_name);
@@ -355,8 +364,9 @@ public class C206_CaseStudy {
 			}
 		}
 	}
-	
-	//================================= Option 1 Create weekly menu =================================
+
+	// ================================= Option 1 Create weekly menu
+	// =================================
 
 	public static DailyMenu inputMenu() {
 		int id = Helper.readInt("Enter ID > ");
@@ -382,8 +392,8 @@ public class C206_CaseStudy {
 
 	}
 
-	
-	//================================= Option 2 View weekly menu =================================
+	// ================================= Option 2 View weekly menu
+	// =================================
 
 	public static String retrieveWeeklyMenu(ArrayList<DailyMenu> weeklyMenuList) {
 		String output = "";
@@ -415,7 +425,7 @@ public class C206_CaseStudy {
 			System.out.println(output);
 		}
 	}
-	
+
 	public static boolean menuEmpty(ArrayList<DailyMenu> weeklyMenuList) {
 		if (weeklyMenuList.isEmpty()) {
 			return true;
@@ -423,9 +433,10 @@ public class C206_CaseStudy {
 			return false;
 		}
 	}
-	
-	//================================= Option 3 Delete weekly menu =================================
-	
+
+	// ================================= Option 3 Delete weekly menu
+	// =================================
+
 	public static void deleteWeeklyMenu(ArrayList<DailyMenu> weeklyMenuList) {
 		System.out.println("DELETE WEEKLY MENU");
 		viewWeeklyMenu(weeklyMenuList);
@@ -439,8 +450,9 @@ public class C206_CaseStudy {
 			System.out.println("Invalid input!");
 		}
 	}
-	
-	//================================= Option 4 Delete weekly menu =================================
+
+	// ================================= Option 4 Delete weekly menu
+	// =================================
 
 	public static void updateWeeklyMenu(ArrayList<DailyMenu> weeklyMenuList) {
 		System.out.println("UPDATE WEEKLY MENU");
@@ -493,5 +505,57 @@ public class C206_CaseStudy {
 			}
 		}
 	}
-	
+
+	// ================================= Option 1 View Order Bill
+	// =================================
+	public static String retreiveAllOrderBills(ArrayList<Bill> billList) {
+		// TODO Auto-generated method stub
+		String output = "";
+
+		for (int i = 0; i < billList.size(); i++) {
+			output += String.format("%-15d %-15s %-30s %-10s %-15.2f\n", billList.get(i).getBill_id(),
+					billList.get(i).getMeal(), billList.get(i).getDrink(), billList.get(i).getFruit(),
+					billList.get(i).getAmount());
+		}
+		return output;
+	}
+
+	public static void ViewAllOrderBills(ArrayList<Bill> billList) {
+
+		String output = String.format("%-15d %-15s %-30s %-10s %-15.2f\n", "BILL ID", "MEAL", "DRINK", "FRUIT",
+				"AMOUNT");
+		output += retreiveAllOrderBills(billList);
+		System.out.println(output);
+	}
+
+	public static Bill inputOrderBill() { // change
+		int bill_id = Helper.readInt("Enter bill id > ");
+		String meal = Helper.readString("Enter meal > ");
+		String drink = Helper.readString("Enter drink > ");
+		String fruit = Helper.readString("Enter fruit > ");
+		double amount = Helper.readDouble("Enter amount > ");
+
+		Bill b = new Bill(bill_id, meal, drink, fruit, amount);
+		return b;
+	}
+
+//================================= Option 2 Add Order Bill =================================
+	public static void addOrderBill(ArrayList<Bill> billList, Bill b) {
+		// TODO Auto-generated method stub
+		// inputOrderBill();
+
+		billList.add(b);
+
+	}
+
+	// ================================= Option 3 Delete Order Bill
+	// =================================
+	public static void deleteOrderBills(ArrayList<Bill> billList, int bill_id) {
+		for (int i = 0; i < billList.size(); i++) {
+			if (bill_id == (billList.get(i)).getBill_id()) {
+				billList.remove(i);
+			}
+
+		}
+	}
 }
