@@ -3,6 +3,14 @@ import java.util.ArrayList;
 public class C206_CaseStudy {
 
 	public static void main(String[] args) {
+
+		ArrayList<LunchBoxOrder> LunchBoxOrderList = new ArrayList<LunchBoxOrder>();
+		LunchBoxOrder.add(new LunchBoxOrder(1, "7/8/22", "Western cusine", "Orange Juice", "Watermelon", 4.00));
+		LunchBoxOrder.add(new LunchBoxOrder(2, "8/8/22", "Japanese cusine", "apple Juice", "Apple", 3.60));
+		LunchBoxOrder.add(new LunchBoxOrder(3, "9/8/22", "Vegeterian cusine", "Grapes Juice", "Orange", 4.10));
+		LunchBoxOrder.add(new LunchBoxOrder(4, "10/8/22", "Malay cusine", "strawberry Juice", "Strawberry", 4.20));
+		LunchBoxOrder.add(new LunchBoxOrder(5, "11/8/22", "Indian cusine", "HoneyDew Juice", "Mango", 3.80));
+
 		ArrayList<Bill> billList = new ArrayList<Bill>();
 
 		billList.add(new Bill(11, "Western cuisine", "Orange juice", "Watermelon", 4.00));
@@ -87,137 +95,190 @@ public class C206_CaseStudy {
 		parentList.add(new Account("Kelly yeo", 200140, "P34310", "Kellyyeo@gmail.com", "CJBond321"));
 		studentList.add(new Student("John JR", 200301, "ClassADBEST"));
 		studentList.add(new Student("Sherlynn Yeo", 200140, "IFT2022AD"));
+		
+	int loginoption = 0;
+	int adminoption = 0;
+	int useroption = 0;
 
-		int loginoption = 0;
-		int adminoption = 0;
-		int useroption = 0;
+				    while (loginoption != 3) {
 
-		while (loginoption != 3) {
+				      loginMenu();
+				      loginoption = Helper.readInt("Enter an option > ");
 
-			loginMenu();
-			loginoption = Helper.readInt("Enter an option > ");
+				      if (loginoption == 1) {
+				        // User login
+				        String username = Helper.readString("Enter your studentID > ");
+				        String password = Helper.readString("Enter your password > ");
+				        // validateLogin();
+				        loginoption = 0;
+				        while (useroption != 4) {
+				          userMenu();
+				          useroption = Helper.readInt("Enter an option > ");
+				          if (useroption == 1) {
+				            C206_CaseStudy.viewWeeklyMenu(weeklyMenuList);
+				          } else if (useroption == 2) {
+				            lunchBoxMenu();
+				            int lunchbox = Helper.readInt("Enter an option > ");
+				            if (lunchbox == 1) {
+				              //
+				            } else if (lunchbox == 2) {
+				              //
+				            } else if (lunchbox == 3) {
+				              //
+				            } else {
+				              System.out.println("Invalid option");
+				            }
+				          } else if (useroption == 3) {
+				            //
+				          } else if (useroption == 4) {
+				            System.out.println("Goodbye!");
+				          } else {
+				            System.out.println("Invalid!");
+				          }
+				      } else if (loginoption == 2) {
+				        // admin login
+				        String username = Helper.readString("Enter your adminID > ");
+				        String password = Helper.readString("Enter your password > ");
+				        // validateLogin();
+				        adminoption = 0;
+				        while (adminoption != 6) {
+				          adminMenu();
+				          adminoption = Helper.readInt("Enter an option > ");
+				          if (adminoption == 1) {
+				            accountMenu();
+				            int accmenu = Helper.readInt("Enter an option > ");
+				            if (accmenu == 1) {
+				              int itemType = Helper.readInt("Enter option to select to add student/parent > ");
+				              if (itemType == 1) {
+				                // Add a parent 
+				                Account p = inputAccount();
+				                C206_CaseStudy.addAccount(parentList, p);
+				                System.out.println("Parent added");
 
-			if (loginoption == 1) {
-				// User login
-				String username = Helper.readString("Enter your studentID > ");
-				String password = Helper.readString("Enter your password > ");
-				// validateLogin();
-				loginoption = 0;
-				while (useroption != 4) {
-					userMenu();
-					useroption = Helper.readInt("Enter an option > ");
-					if (useroption == 1) {
-						C206_CaseStudy.viewWeeklyMenu(weeklyMenuList);
-					} else if (useroption == 2) {
-						lunchBoxMenu();
-						int lunchbox = Helper.readInt("Enter an option > ");
-						if (lunchbox == 1) {
-							//
-						} else if (lunchbox == 2) {
-							//
-						} else if (lunchbox == 3) {
-							//
-						} else {
-							System.out.println("Invalid option");
-						}
-					} else if (useroption == 3) {
-						//
-					} else if (useroption == 4) {
-						System.out.println("Goodbye!");
-					} else {
-						System.out.println("Invalid!");
-					}
-				}
+				              } else if (itemType == 2) {
+				                // Add a student
+				                Student s = inputstudent();
+				                C206_CaseStudy.addStudent(studentList, s);
+				                System.out.println("Student added");
+				                } else {
+				                System.out.println("Invalid type");
+				           
+				            } else if (accmenu == 2) {
+				              int itemType = Helper.readInt("Enter option to view parent/children > ");
 
-			} else if (loginoption == 2) {
-				// admin login
-				String username = Helper.readString("Enter your adminID > ");
-				String password = Helper.readString("Enter your password > ");
-				// validateLogin();
-				adminoption = 0;
-				while (adminoption != 6) {
-					adminMenu();
-					adminoption = Helper.readInt("Enter an option > ");
-					if (adminoption == 1) {
-						accountMenu();
-						int accmenu = Helper.readInt("Enter an option > ");
-						if (accmenu == 1) {
-							//
-						} else if (accmenu == 2) {
-							//
-						} else if (accmenu == 3) {
-							//
-						} else {
-							System.out.println("Invalid option");
-						}
-					} else if (adminoption == 2) {
-						menuItemMenu();
-						int menuitem = Helper.readInt("Enter an option > ");
-						if (menuitem == 1) {
-							//
-						} else if (menuitem == 2) {
-							//
-						} else if (menuitem == 3) {
-							//
-						} else {
-							System.out.println("Invalid option");
-						}
-					} else if (adminoption == 3) {
-						weeklyMenu();
-						int weeklymenu = Helper.readInt("Enter an option > ");
-						if (weeklymenu == 1) {
-							DailyMenu dm = inputMenu();
-							createWeeklyMenu(weeklyMenuList, dm);
-						} else if (weeklymenu == 2) {
-							viewWeeklyMenu(weeklyMenuList);
-						} else if (weeklymenu == 3) {
-							deleteWeeklyMenu(weeklyMenuList);
-						} else if (weeklymenu == 4) {
-							updateWeeklyMenu(weeklyMenuList);
-						} else {
-							System.out.println("Invalid option");
-						}
-					} else if (adminoption == 4) {
-						lunchBoxMenu();
-						int lunchbox = Helper.readInt("Enter an option > ");
-						if (lunchbox == 1) {
-							//
-						} else if (lunchbox == 2) {
-							//
-						} else if (lunchbox == 3) {
-							//
-						} else {
-							System.out.println("Invalid option");
-						}
-					} else if (adminoption == 5) {
-						billMenu();
-						int bill = Helper.readInt("Enter an option > ");
-						if (bill == 1) {
-							ViewAllOrderBills(billList);
-						} else if (bill == 2) {
-							Bill b = inputOrderBill();
-							addOrderBill(billList, b);
-						} else if (bill == 3) {
-							deleteOrderBills(billList, bill);
-						} else {
-							System.out.println("Invalid option");
-						}
-					} else if (adminoption == 6) {
-						System.out.println("Goodbye!");
-					} else {
-						System.out.println("Invalid!");
-					}
+				              if (itemType == 1) {
+				                // View parent
+				                C206_CaseStudy.viewAllParent(parentList);
+				                
 
-				}
-			} else if (loginoption == 3) {
-				System.out.println("Logged out!");
-			} else {
-				System.out.println("Invalid option");
-			}
-		}
+				              } else if (itemType == 2) {
+				                // View student
+				                C206_CaseStudy.viewAllStudents(studentList);
+				                
+				        
+				              } else {
+				                System.out.println("Invalid");
+				           
+				              }
+				  
+				            } else if (accmenu == 3) {
+				              int itemType = Helper.readInt("Enter option to delete parent/children > ");
 
-	}
-
+				              if (itemType == 1) {
+				                // Delete parent
+				                String delete_id = Helper.readString("Enter an Item ID to delete: ");
+				                C206_CaseStudy.deleteAccount(parentList, delete_id);
+				                System.out.println("Parent deleted!");
+				              } else if (itemType == 2) {
+				                // Delete student
+				              int delete_id = Helper.readInt("Enter an Item ID to delete: ");
+				              C206_CaseStudy.deleteStudent(studentList, delete_id);
+				               System.out.println("Student deleted!");
+				            
+				            } else {
+				              System.out.println("Invalid option");
+				            }
+				            }
+				         
+				          } else if (adminoption == 2) {
+				            menuItemMenu();
+				            int menuitem = Helper.readInt("Enter an option > ");
+				            if (menuitem == 1) {
+				              viewAll_items(item_bank);
+				            } else if (menuitem == 2) {
+				              setHeader("ADD ITEM");
+				              // Add item
+				              Item new_item = inputDetails();
+				              addItem(item_bank, new_item);
+				              System.out.println("Item added!");
+				            } else if (menuitem == 3) {
+				              setHeader("DELETE ITEM");  
+				              int delete_id = Helper.readInt("Enter an Item ID to delete: ");
+				              C206_CaseStudy.deleteItem(item_bank, delete_id);
+				              System.out.println("Item deleted!");
+				            } else if (menuitem == 4) {
+				              // Update item
+				              setHeader("UPDATE");
+				              updateItem(item_bank, menuitem);
+				            } else {
+				              System.out.println("Invalid option");
+				            }
+				          }
+				          } else if (adminoption == 3) {
+				            weeklyMenu();
+				            int weeklymenu = Helper.readInt("Enter an option > ");
+				            if (weeklymenu == 1) {
+				              DailyMenu dm = inputMenu();
+				              createWeeklyMenu(weeklyMenuList, dm);
+				            } else if (weeklymenu == 2) {
+				              viewWeeklyMenu(weeklyMenuList);
+				            } else if (weeklymenu == 3) {
+				              deleteWeeklyMenu(weeklyMenuList);
+				            } else if (weeklymenu == 4) {
+				              updateWeeklyMenu(weeklyMenuList);
+				            } else if (weeklymenu == 5) {
+				              System.out.println("Goodbye!");
+				            }
+				            else {
+				              System.out.println("Invalid option");
+				            }
+				          }
+				          else if (adminoption == 4) {
+								lunchBoxMenu();
+								int lunchbox = Helper.readInt("Enter an option > ");
+								if (lunchbox == 1) {
+									retrieveAllLunchBoxOrder(LunchBoxOrderList);
+								} else if (lunchbox == 2) {
+									LunchBoxOrder bo = inputLunchBoxOrder();
+									AddLunchBox(LunchBoxOrderList, bo);
+								} else if (lunchbox == 3) {
+									int deleteLunchBoxID = Helper.readInt("Enter Lunch Box ID to delete: ");
+									DeleteLunchBox(LunchBoxOrderList, deleteLunchBoxID);
+									System.out.println("Lunch Box Order deleted!");
+								} else {
+									System.out.println("Invalid option");
+								}
+				          } else if (adminoption == 5) {
+				            billMenu();
+				            int bill = Helper.readInt("Enter an option > ");
+				            if (bill == 1) {
+				              //
+				            } else if (bill == 2) {
+				              //
+				            } else if (bill == 3) {
+				              //
+				            } else {
+				              System.out.println("Invalid option");
+				            }
+				          } else if (adminoption == 6) {
+				            System.out.println("Goodbye!");
+				          } else {
+				            System.out.println("Invalid!");
+				          } else if (loginoption == 3) {
+				        System.out.println("Logged out!");
+				      } else {
+				        System.out.println("Invalid option");
+				      }
 
 	public static void loginMenu() {
 		C206_CaseStudy.setHeader("LOGIN TO LUNCH BOX APP");
@@ -551,6 +612,7 @@ public class C206_CaseStudy {
 		System.out.println(output);
 	}
 
+//================================= Option 2 Add Order Bill =================================
 	public static Bill inputOrderBill() { // change
 		int bill_id = Helper.readInt("Enter bill id > ");
 		String meal = Helper.readString("Enter meal > ");
@@ -562,7 +624,6 @@ public class C206_CaseStudy {
 		return b;
 	}
 
-//================================= Option 2 Add Order Bill =================================
 	public static void addOrderBill(ArrayList<Bill> billList, Bill b) {
 		// TODO Auto-generated method stub
 		// inputOrderBill();
@@ -677,6 +738,57 @@ public class C206_CaseStudy {
 			if (parentID == (parentList.get(i).getParentID())) {
 				parentList.remove(i);
 				isDelete = true;
+			}
+		}
+	}
+
+	// ================================= Option 1 Retrieve Lunch Box
+	// Order=================================
+	public static String retrieveAllLunchBoxOrder(ArrayList<LunchBoxOrder> LunchBoxorderList) {
+		String output = "";
+		for (LunchBoxOrder d : LunchBoxorderList) {
+			output += String.format("%-20s %-20s %-20s %-20s %-20s %-20s\n", d.getOrderID(), d.getDate(),
+					d.getSetmeal(), d.getDrink(), d.getFruit(), d.getPrice());
+
+		}
+		return output;
+	}
+
+	public static void ViewAllLunchBoxOrder(ArrayList<LunchBoxOrder> LunchBoxorderList) {
+		C206_CaseStudy.setHeader("LUNCHBOX ORDER LIST");
+		String output = String.format("%-15s %-15s %-15s %-30s %-45s %-10s\n", "ORDER ID", "DATE", "SET MEAL",
+				"DRINK SET", "FRUIT SET", "PRICE");
+		output += retrieveAllLunchBoxOrder(LunchBoxorderList);
+		System.out.println(output);
+	}
+
+	// ================================= Option 2 Add Lunch Box
+	// Order=================================
+	public static LunchBoxOrder inputLunchBoxOrder() {
+
+		int OrderID = Helper.readInt("Enter the order ID > ");
+		String Date = Helper.readString("Enter the date> ");
+		String SetMeal = Helper.readString("Enter the meal set that you want to order> ");
+		String drink = Helper.readString("Enter the drink > ");
+		String fruit = Helper.readString("Enter the fruit > ");
+		Double price = Helper.readDouble("Enrer the meal price > ");
+		LunchBoxOrder a = new LunchBoxOrder(OrderID, Date, SetMeal, drink, fruit, price);
+		return a;
+	}
+
+	public static void AddLunchBox(ArrayList<LunchBoxOrder> LunchBoxOrderList, LunchBoxOrder a) {
+		LunchBoxOrderList.add(a);
+
+	}
+
+//================================= Option 3 delete Lunch Box Order=================================	
+	public static void DeleteLunchBox(ArrayList<LunchBoxOrder> LunchBoxOrderList, int a) {
+		boolean isDelete = false;
+		for (int i = 0; i < LunchBoxOrderList.size(); i++) {
+			if (a == LunchBoxOrderList.get(i).getOrderID()) {
+				LunchBoxOrderList.remove(a);
+				isDelete = true;
+
 			}
 		}
 

@@ -110,7 +110,7 @@ public class C206_CaseStudyTest {
 		String testOutput = "";
 		assertEquals("Check that item_bank is empty", testOutput, all_Item);
 		
-		//Given an empty list, after adding 2 items, test if the size of the list is 2
+		//Given an empty list, after adding 2 items, test if the size of the list is 2.
 		C206_CaseStudy.addItem(item_bank, western1);
 		C206_CaseStudy.addItem(item_bank, asian1);
 		assertEquals("Test if the item_bank arraylist size is 2", 2, item_bank.size());
