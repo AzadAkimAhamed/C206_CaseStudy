@@ -3,66 +3,22 @@ import java.util.ArrayList;
 public class C206_CaseStudy {
 
 	public static void main(String[] args) {
-		/*
-		JoggingSpot_Main_Enhancement jogspot = new JoggingSpot_Main_Enhancement(); 
-		jogspot.start();
-	}
+				
+		ArrayList<DailyMenu> weeklyMenuList = new ArrayList<DailyMenu>();
 		
-		
-		
-		public void start() {
-			try { 
-				int option = -1; 
-				while (option != 4) {
-					menu();
-					option = Helper.readInt("Enter choice > ");
-					if (option == 1) {
-						addUserAccount();
-					} 	
-					else if (option == 2) {
-						addMenuItems();
-					} 
-					else if (option == 3) {
-						placeLunchBoxOrder();
-					} 
-					else if (option == 4) {
-						orderbill();
-					}
-					else {
-						System.out.println("Thank you for using Singapore Jogging Spots App!");
-					}
-				} 
-			} catch (SQLException se) {
-				System.out.println("SQL Error: " + se.getMessage());
-			}
-	}
-	
-	
-	
-	private void menu() {
-		Helper.line(80, "=");
-		System.out.println("School Lunch Box Online Ordering App");
-		Helper.line(80, "=");
-		if () {
-			System.out.println("    1. View All Jogging Spots");
-			System.out.println("    2. View Jogging Spots by Category");
-			System.out.println("    3. Add New Jogging Spot");
-			System.out.println("    4. Quit\n");
-		} 
-	}
-*/
-	
-		// I did for here, Akim :)
-	//	ArrayList<Item> western_bank = new ArrayList<Item>();
-	//	ArrayList<Item> asian_bank = new ArrayList<Item>();
-	//	ArrayList<Item> veggie_bank = new ArrayList<Item>();
-	//	ArrayList<Item> drink1_bank = new ArrayList<Item>();
-	//	ArrayList<Item> drink2_bank = new ArrayList<Item>();
-	//	ArrayList<Item> fruit1_bank = new ArrayList<Item>();
-	//	ArrayList<Item> fruit2_bank = new ArrayList<Item>();
-		// Alternatively
+		weeklyMenuList.add(new DailyMenu(1, "Monday", "Spaghetti", "Chicken Rice", "Dumpling Noodle Soup",
+				"Low-fat Milk", "Apple Juice", "Milo", "Watermelon", "Honeydew", "Apple"));
+		weeklyMenuList.add(new DailyMenu(2, "Tuesday", "Burger with fries", "Fried Rice", "Fried Bee Hoon", "Ribena",
+				"Chocolate Milk", "Wintermelon Tea", "Banana", "Grapes", "Green apple"));
+		weeklyMenuList.add(new DailyMenu(3, "Wednesday", "Chicken Chop", "Wanton Mee", "Egg Fried Rice", "Green Tea",
+				"Soya Milk", "Carrot Juice", "Melon", "Kiwi", "Mango"));
+		weeklyMenuList.add(new DailyMenu(4, "Thursday", "Cheese baked rice", "Hor Fan", "Tofu Porridge", "Low-fat Milk",
+				"Strawberry Milk", "Ribena", "Apple", "Watermelon", "Banana"));
+		weeklyMenuList.add(new DailyMenu(5, "Friday", "Pizza", "Fried noodles", "Kway Teo", "Milo", "Orange Juice",
+				"Green Tea", "Grapes", "Honeydew", "Mango"));
+
+
 		ArrayList<Item> item_bank = new ArrayList<Item>(); // will contain 35 items (7 of each type)
-		
 		item_bank.add(new Item(1, "", "", "", 3.50)); // Western1 - dailymenu1
 		item_bank.add(new Item(6, "", "", "", 3.50)); // Asian1 - dailymenu1
 		item_bank.add(new Item(11, "", "", "", 3.50)); // Veggie1 - dailymenu1
@@ -108,60 +64,226 @@ public class C206_CaseStudy {
 		item_bank.add(new Item(35, "", "", "", 3.50)); 
 		item_bank.add(new Item(35, "", "", "", 3.50)); 
 	
-		int option = 0;
-	
-		while (option != 5) {
-			C206_CaseStudy.menu();
-			option = Helper.readInt("Enter an option > ");
+		int loginoption = 0;
+		int adminoption = 0;
+		int useroption = 0;
 
-			if (option == 1) {
-				// View all items
-				C206_CaseStudy.viewAll_items(item_bank);
+		while (loginoption != 3) {
 
-			} else if (option == 2) {
-				C206_CaseStudy.setHeader("ADD ITEM");			
+			loginMenu();
+			loginoption = Helper.readInt("Enter an option > ");
 
-				// Add item
-				Item new_item = inputDetails();
-				C206_CaseStudy.addItem(item_bank, new_item);
-				System.out.println("Item added!");
+			if (loginoption == 1) {
+				// User login
+				String username = Helper.readString("Enter your studentID > ");
+				String password = Helper.readString("Enter your password > ");
+				// validateLogin();
+				loginoption = 0;
+				while (useroption != 4) {
+					userMenu();
+					useroption = Helper.readInt("Enter an option > ");
+					if (useroption == 1) {
+						C206_CaseStudy.viewWeeklyMenu(weeklyMenuList);
+					} else if (useroption == 2) {
+						lunchBoxMenu();
+						int lunchbox = Helper.readInt("Enter an option > ");
+						if (lunchbox == 1) {
+							//
+						} else if (lunchbox == 2) {
+							//
+						} else if (lunchbox == 3) {
+							//
+						} else {
+							System.out.println("Invalid option");
+						}
+					} else if (useroption == 3) {
+						//
+					} else if (useroption == 4) {
+						System.out.println("Goodbye!");
+					} else {
+						System.out.println("Invalid!");
+					}
+				}
 
-			} else if (option == 3) {
-				// Delete item
-				C206_CaseStudy.setHeader("DELETE ITEM");	
-				System.out.println("Enter an Item ID to delete: ");
-				C206_CaseStudy.deleteItem(item_bank, option);
-				System.out.println("Item deleted!");
-				
-			} else if (option == 4) {
-				// Update item
-				C206_CaseStudy.setHeader("UPDATE");				
-				C206_CaseStudy.updateItem(item_bank, option);
-			
+			} else if (loginoption == 2) {
+				// admin login
+				String username = Helper.readString("Enter your adminID > ");
+				String password = Helper.readString("Enter your password > ");
+				// validateLogin();
+				adminoption = 0;
+				while (adminoption != 6) {
+					adminMenu();
+					adminoption = Helper.readInt("Enter an option > ");
+					if (adminoption == 1) {
+						accountMenu();
+						int accmenu = Helper.readInt("Enter an option > ");
+						if (accmenu == 1) {
+							//
+						} else if (accmenu == 2) {
+							//
+						} else if (accmenu == 3) {
+							//
+						} else {
+							System.out.println("Invalid option");
+						}
+					} else if (adminoption == 2) {
+						menuItemMenu();
+						int menuitem = Helper.readInt("Enter an option > ");
+						if (menuitem == 1) {
+							//
+						} else if (menuitem == 2) {
+							//
+						} else if (menuitem == 3) {
+							//
+						} else {
+							System.out.println("Invalid option");
+						}
+					} else if (adminoption == 3) {
+						weeklyMenu();
+						int weeklymenu = Helper.readInt("Enter an option > ");
+						if (weeklymenu == 1) {
+							DailyMenu dm = inputMenu();
+							createWeeklyMenu(weeklyMenuList, dm);
+						} else if (weeklymenu == 2) {
+							viewWeeklyMenu(weeklyMenuList);
+						} else if (weeklymenu == 3) {
+							deleteWeeklyMenu(weeklyMenuList);
+						} else if (weeklymenu == 4) {
+							updateWeeklyMenu(weeklyMenuList);
+						} else {
+							System.out.println("Invalid option");
+						}
+					} else if (adminoption == 4) {
+						lunchBoxMenu();
+						int lunchbox = Helper.readInt("Enter an option > ");
+						if (lunchbox == 1) {
+							//
+						} else if (lunchbox == 2) {
+							//
+						} else if (lunchbox == 3) {
+							//
+						} else {
+							System.out.println("Invalid option");
+						}
+					} else if (adminoption == 5) {
+						billMenu();
+						int bill = Helper.readInt("Enter an option > ");
+						if (bill == 1) {
+							//
+						} else if (bill == 2) {
+							//
+						} else if (bill == 3) {
+							//
+						} else {
+							System.out.println("Invalid option");
+						}
+					} else if (adminoption == 6) {
+						System.out.println("Goodbye!");
+					} else {
+						System.out.println("Invalid!");
+					}
 
-			} else if (option == 5) {
-				System.out.println("Bye admin!");
+				}
+			} else if (loginoption == 3) {
+				System.out.println("Logged out!");
 			} else {
 				System.out.println("Invalid option");
 			}
 		}
-	}	
-	public static void menu() {
-		C206_CaseStudy.setHeader("ITEM MENU");
-		System.out.println("1. View items");
-		System.out.println("2. Add item");
-		System.out.println("3. Delete item");
-		System.out.println("4. Update item"); // Still working on this (Sprint 2)
-		System.out.println("5. Quit");
-		Helper.line(80, "-");
 
 	}
-	public static void setHeader(String header) {
+
+	public static void loginMenu() {
+		C206_CaseStudy.setHeader("LOGIN TO LUNCH BOX APP");
+		System.out.println("1. User");
+		System.out.println("2. Admin");
+		System.out.println("3. Log out");
+	}
+
+	public static void adminMenu() {
+		C206_CaseStudy.setHeader("LUNCH BOX APP");
+		System.out.println("1. Manage Account");
+		System.out.println("2. Manage Menu Bank");
+		System.out.println("3. Manage Weekly Menu");
+		System.out.println("4. Manage Lunch Box Order");
+		System.out.println("5. Manage Bill");
+		System.out.println("6. Quit");
 		Helper.line(80, "-");
-		System.out.println(header);
+	}
+
+	public static void userMenu() {
+		C206_CaseStudy.setHeader("LUNCH BOX APP");
+		System.out.println("1. View Weekly Menu");
+		System.out.println("2. Maintain Lunch Box Order");
+		System.out.println("3. View Order Bill");
+		System.out.println("4. Quit");
+		Helper.line(80, "-");
+	}
+
+	public static void accountMenu() {
+		C206_CaseStudy.setHeader("MAINTAIN ACCOUNT");
+		System.out.println("1. Add account");
+		System.out.println("2. View account");
+		System.out.println("3. Delete account");
+		System.out.println("4. Quit");
+		Helper.line(80, "-");
+	}
+
+	public static void menuItemMenu() {
+		C206_CaseStudy.setHeader("MAINTAIN MENU ITEMS");
+		System.out.println("1. Add menu items");
+		System.out.println("2. View menu items");
+		System.out.println("3. Delete menu items");
+		System.out.println("4. Quit");
+		Helper.line(80, "-");
+	}
+
+	public static void weeklyMenu() {
+		C206_CaseStudy.setHeader("MAINTAIN WEEKLY MENU");
+		System.out.println("1. Create Weekly Menu");
+		System.out.println("2. View Weekly Menu");
+		System.out.println("3. Delete Weekly Menu");
+		System.out.println("4. Update Weekly Menu");
+		System.out.println("5. Quit");
+		Helper.line(80, "-");
+	}
+
+	public static void lunchBoxMenu() {
+		C206_CaseStudy.setHeader("MAINTAIN LUNCH BOX ORDER");
+		System.out.println("1. Add/Place Lunch Box Order");
+		System.out.println("2. View Lunch Box Order");
+		System.out.println("3. Delete/Cancel Lunch Box Order");
+		System.out.println("4. Quit");
+		Helper.line(80, "-");
+	}
+
+	public static void billMenu() {
+		C206_CaseStudy.setHeader("MAINTAIN ORDER BILL");
+		System.out.println("1. Create Order Bill");
+		System.out.println("2. View Order Bill");
+		System.out.println("3. Delete Order Bill");
+		System.out.println("4. Quit");
 		Helper.line(80, "-");
 	}
 	
+	public static void subMenu() {
+		System.out.println("1. Western");
+		System.out.println("2. Asian");
+		System.out.println("3. Vegetarian");
+		System.out.println("4. Drink 1");
+		System.out.println("5. Drink 2");
+		System.out.println("6. Drink 3");
+		System.out.println("7. Fruit 1");
+		System.out.println("8. Fruit 2");
+		System.out.println("9. Fruit 3");
+		Helper.line(80, "-");
+	}
+
+	public static void setHeader(String header) {
+		Helper.line(300, "-");
+		System.out.println(header);
+		Helper.line(300, "-");
+	}
 		//================================= Option 1 View items =================================
 	public static String retrieveAll_items(ArrayList<Item> item_bank) {
 		String output = "";
@@ -233,4 +355,143 @@ public class C206_CaseStudy {
 			}
 		}
 	}
+	
+	//================================= Option 1 Create weekly menu =================================
+
+	public static DailyMenu inputMenu() {
+		int id = Helper.readInt("Enter ID > ");
+		String menu = Helper.readString("Enter Date > ");
+		String western = Helper.readString("Enter Western > ");
+		String asian = Helper.readString("Enter Asian > ");
+		String vege = Helper.readString("Enter Vegetarian > ");
+		String d1 = Helper.readString("Enter 1st Drink > ");
+		String d2 = Helper.readString("Enter 2nd Drink > ");
+		String d3 = Helper.readString("Enter 3rd Drink > ");
+		String f1 = Helper.readString("Enter 1st Fruit > ");
+		String f2 = Helper.readString("Enter 2nd Fruit > ");
+		String f3 = Helper.readString("Enter 3rd Fruit > ");
+
+		DailyMenu dm = new DailyMenu(id, menu, western, asian, vege, d1, d2, d3, f1, f2, f3);
+		return dm;
+
+	}
+
+	public static void createWeeklyMenu(ArrayList<DailyMenu> weeklyMenuList, DailyMenu dm) {
+		weeklyMenuList.add(dm);
+		System.out.println("Menu added!");
+
+	}
+
+	
+	//================================= Option 2 View weekly menu =================================
+
+	public static String retrieveWeeklyMenu(ArrayList<DailyMenu> weeklyMenuList) {
+		String output = "";
+		// write your code here
+
+		for (int i = 0; i < weeklyMenuList.size(); i++) {
+
+			output += String.format("%-5d %-10s %-25s %-25s %-25s %-25s %-25s %-25s %-25s %-25s %-25s\n",
+					weeklyMenuList.get(i).getMenuID(), weeklyMenuList.get(i).getDate(),
+					weeklyMenuList.get(i).getWestern(), weeklyMenuList.get(i).getAsian(),
+					weeklyMenuList.get(i).getVeggie(), weeklyMenuList.get(i).getDrink1(),
+					weeklyMenuList.get(i).getDrink2(), weeklyMenuList.get(i).getDrink3(),
+					weeklyMenuList.get(i).getFruit1(), weeklyMenuList.get(i).getFruit2(),
+					weeklyMenuList.get(i).getFruit3());
+
+		}
+		return output;
+	}
+
+	public static void viewWeeklyMenu(ArrayList<DailyMenu> weeklyMenuList) {
+		if (menuEmpty(weeklyMenuList)) {
+			System.out.println("Menu not found!");
+		} else {
+			C206_CaseStudy.setHeader("WEEKLY MENU");
+			String output = String.format("%-5s %-10s %-25s %-25s %-25s %-25s %-25s %-25s %-25s %-25s %-25s\n", "ID",
+					"DATE", "WESTERN", "ASIAN", "VEGETARIAN", "DRINK 1", "DRINK 2", "DRINK 3", "FRUIT 1", "FRUIT 2",
+					"FRUIT 3");
+			output += retrieveWeeklyMenu(weeklyMenuList);
+			System.out.println(output);
+		}
+	}
+	
+	public static boolean menuEmpty(ArrayList<DailyMenu> weeklyMenuList) {
+		if (weeklyMenuList.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//================================= Option 3 Delete weekly menu =================================
+	
+	public static void deleteWeeklyMenu(ArrayList<DailyMenu> weeklyMenuList) {
+		System.out.println("DELETE WEEKLY MENU");
+		viewWeeklyMenu(weeklyMenuList);
+		char confirmation = Helper.readChar("Are you sure to delete the Weekly Menu? (y/n) > ");
+		if (confirmation == 'y' || confirmation == 'Y') {
+			weeklyMenuList.clear();
+			System.out.println("Weekly Menu deleted!");
+		} else if (confirmation == 'n' || confirmation == 'N') {
+			System.out.println("Weekly Menu not deleted!");
+		} else {
+			System.out.println("Invalid input!");
+		}
+	}
+	
+	//================================= Option 4 Delete weekly menu =================================
+
+	public static void updateWeeklyMenu(ArrayList<DailyMenu> weeklyMenuList) {
+		System.out.println("UPDATE WEEKLY MENU");
+		viewWeeklyMenu(weeklyMenuList);
+		int id = Helper.readInt("Enter the menu ID you wish to update > ");
+		for (DailyMenu dm : weeklyMenuList) {
+			if (dm.getMenuID() == id) {
+				int index = weeklyMenuList.indexOf(dm);
+				subMenu();
+				int option = Helper.readInt("Enter option to update > ");
+				if (option == 1) {
+					String newWestern = Helper.readString("Enter the new Western > ");
+					weeklyMenuList.get(index).setWestern(newWestern);
+					System.out.println("Western has been updated!");
+				} else if (option == 2) {
+					String newAsian = Helper.readString("Enter the new Asian > ");
+					weeklyMenuList.get(index).setAsian(newAsian);
+					System.out.println("Asian has been updated!");
+				} else if (option == 3) {
+					String newVege = Helper.readString("Enter the new Vegetarian > ");
+					weeklyMenuList.get(index).setVeggie(newVege);
+					System.out.println("Vegetarian has been updated!");
+				} else if (option == 4) {
+					String newD1 = Helper.readString("Enter the new Drink 1 > ");
+					weeklyMenuList.get(index).setDrink1(newD1);
+					System.out.println("Drink 1 has been updated!");
+				} else if (option == 5) {
+					String newD2 = Helper.readString("Enter the new Drink 2 > ");
+					weeklyMenuList.get(index).setDrink2(newD2);
+					System.out.println("Drink 2 has been updated!");
+				} else if (option == 6) {
+					String newD3 = Helper.readString("Enter the new Drink 3 > ");
+					weeklyMenuList.get(index).setDrink3(newD3);
+					System.out.println("Drink 3 has been updated!");
+				} else if (option == 7) {
+					String newF1 = Helper.readString("Enter the new Fruit 1 > ");
+					weeklyMenuList.get(index).setFruit1(newF1);
+					System.out.println("Fruit 1 has been updated!");
+				} else if (option == 8) {
+					String newF2 = Helper.readString("Enter the new Fruit 2 > ");
+					weeklyMenuList.get(index).setFruit2(newF2);
+					System.out.println("Fruit 2 has been updated!");
+				} else if (option == 9) {
+					String newF3 = Helper.readString("Enter the new Fruit 3 > ");
+					weeklyMenuList.get(index).setFruit3(newF3);
+					System.out.println("Fruit 3 has been updated!");
+				} else {
+					System.out.println("Invalid option!");
+				}
+			}
+		}
+	}
+	
 }
