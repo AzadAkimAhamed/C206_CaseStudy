@@ -1,14 +1,12 @@
 
 public class Account extends Student{
 
-	private String password;
-	private double dailyAmountLimit;
 	private String email;
 	private String ParentID;
 	
 	
 
-	public Account(String name, int StudentID, String ParentID,String email, String password) {
+	public Account(String name, int StudentID, String password, String ParentID,String email) {
 		super(name,StudentID,password);
 		this.email= email;
 		this.ParentID= ParentID;

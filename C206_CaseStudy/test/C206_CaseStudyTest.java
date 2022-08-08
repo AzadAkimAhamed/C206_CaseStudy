@@ -86,9 +86,9 @@ public class C206_CaseStudyTest {
 		
 		weeklyMenuList= new ArrayList<DailyMenu>();
 		
-		p1= new Account("John lee", 200301 , "P303043", "hayshyn3@gmail.com", "strawberryWongkar");
-		p2= new Account("Kelly yeo", 200140, "P34310", "Kellyyeo@gmail.com", "CJBond321");
-		p3 = new Account("Isacc Louis Kumar", 202190, "P40001","Annathe@gmail.com", "NelsonistheBest");
+		p1= new Account("John lee", 200301 , "strawberryWongkar","P303043","hayshyn3@gmail.com");
+		p2= new Account("Kelly yeo", 200140, "CJBond321","P34310", "Kellyyeo@gmail.com");
+		p3 = new Account("Isacc Louis Kumar", 202190, "NelsonistheBest", "P40001","Annathe@gmail.com");
 		
 		s1= new Student("John JR", 200301,"ClassADBEST");
 		s2=new Student("Sherlynn Yeo", 200140, "IFT2022AD");
@@ -283,11 +283,12 @@ public class C206_CaseStudyTest {
 	  C206_CaseStudy.addOrderBill(billList, bills3);
 	  assertEquals("Test if that billList arraylist size is 3?", 3, billList.size());
 	  allOrderBill= C206_CaseStudy.retreiveAllOrderBills(billList);
-	  testOutput += String.format("%-15d %-15s %-30s %-10s %-15.2f\n", 11, "Western cuisine", "Watermelon", "Orange juice", 4.00);
-	  testOutput += String.format("%-15d %-15s %-30s %-10s %-15.2f\n", 22, "Japanese cuisine", "Grapes", "Strawberry Tea", 3.60);
-	  testOutput += String.format("%-15d %-15s %-30s %-10s %-15.2f\n", 9, "Vegeterian food", "Orange", "Milo", 2.00);
+	  testOutput += String.format("%-10d %-25s %-20s %-20s %-15.2f\n", 11, "Western cuisine", "Watermelon", "Orange juice", 4.00);
+	  testOutput += String.format("%-10d %-25s %-20s %-20s %-15.2f\n", 22, "Japanese cuisine", "Grapes", "Strawberry Tea", 3.60);
+	  testOutput += String.format("%-10d %-25s %-20s %-20s %-15.2f\n", 9, "Vegeterian food", "Orange", "Milo", 2.00);
 	  assertEquals("Check that ViewAllOrderBills", testOutput, allOrderBill);
 	  
+	 
 	  
 	 }
 	 @Test
@@ -388,8 +389,8 @@ public class C206_CaseStudyTest {
 		//test if the expected output string same as the list of parents retrieved from the SourceCentre
 		allParent= C206_CaseStudy.retrieveAllParent(parentList);
 		
-		testOutput = String.format("%-10s %-15d %-15s %-20s %-5s\n","John lee", 200301,"P303043", "hayshyn3@gmail.com", "strawberryWongkar");
-		testOutput += String.format("%-10s %-15d %-15s %-20s %-5s\n",  "Kelly yeo", 200140, "P34310", "Kellyyeo@gmail.com", "CJBond321");
+		testOutput = String.format("%-15s %-15d %-20s %-25s %-15s\n","John lee", 200301,"strawberryWongkar","P303043", "hayshyn3@gmail.com");
+		testOutput += String.format("%-15s %-15d %-20s %-25s %-15s\n",  "Kelly yeo", 200140, "CJBond321","P34310", "Kellyyeo@gmail.com");
 	
 		assertEquals("Check that ViewAllParents", testOutput, allParent);
 		
@@ -413,8 +414,8 @@ public class C206_CaseStudyTest {
 		//test if the expected output string same as the list of parents retrieved
 		allStudents= C206_CaseStudy.retrieveAllStudents(studentList);
 		
-		testOutput += String.format("%-20s %-15s %-15s\n","John JR", 200301,"ClassADBEST");
-		testOutput += String.format("%-20s %-15s %-15s\n", "Sherlynn Yeo", 200140, "IFT2022AD" );
+		testOutput += String.format("%-20s %-15d %-15s\n","John JR", 200301,"ClassADBEST");
+		testOutput += String.format("%-20s %-15d %-15s\n", "Sherlynn Yeo", 200140, "IFT2022AD" );
 	
 		assertEquals("Check that ViewAllStudents", testOutput, allStudents);
 		
@@ -424,7 +425,9 @@ public class C206_CaseStudyTest {
 	
 	 @Test 
 	 public void testDeleteParent() {
+		 assertNotNull("Test if there is valid parent arraylist to add to", parentList);
 		  C206_CaseStudy.addAccount(parentList, p1);
+		  assertEquals("Test if that parent arraylist size is 1?", 1, parentList.size());
 		  C206_CaseStudy.deleteAccount(parentList,p1.getParentID());
 		  assertEquals(0,parentList.size());
 		  
@@ -445,7 +448,9 @@ public class C206_CaseStudyTest {
 	
 	  @Test 
 	  public void testDeleteStudents() {
+		  assertNotNull("Test if there is valid student arraylist to add to", studentList);
 		  C206_CaseStudy.addStudent(studentList, s1);
+		  assertEquals("Test if that student arraylist size is 1?", 1, studentList.size());
 		  C206_CaseStudy.deleteStudent(studentList, s1.getStudentID());
 		  assertEquals(0,studentList.size());
 	  
@@ -462,7 +467,6 @@ public class C206_CaseStudyTest {
 
 	
 	  }
-	
 	
 	
 
