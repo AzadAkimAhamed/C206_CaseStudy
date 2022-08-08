@@ -34,6 +34,18 @@ public class C206_CaseStudyTest {
 	
 	private ArrayList<DailyMenu> weeklyMenuList;
 	
+	private Account p1;
+	private Account p2;
+	private Account p3;
+	
+	private Student s1;
+	private Student s2;
+	private Student s3;
+	
+	
+	private ArrayList<Account> parentList;
+	private ArrayList<Student> studentList;
+	
 	public C206_CaseStudyTest() {
 		super();
 	}
@@ -73,6 +85,19 @@ public class C206_CaseStudyTest {
 				"Green Tea", "Grapes", "Honeydew", "Mango"); 
 		
 		weeklyMenuList= new ArrayList<DailyMenu>();
+		
+		p1= new Account("John lee", 200301 , "P303043", "hayshyn3@gmail.com", "strawberryWongkar");
+		p2= new Account("Kelly yeo", 200140, "P34310", "Kellyyeo@gmail.com", "CJBond321");
+		p3 = new Account("Isacc Louis Kumar", 202190, "P40001","Annathe@gmail.com", "NelsonistheBest");
+		
+		s1= new Student("John JR", 200301,"ClassADBEST");
+		s2=new Student("Sherlynn Yeo", 200140, "IFT2022AD");
+		s3= new Student("Vijay Louis", 202190, "Suntv321");
+		
+		parentList= new ArrayList<Account>();
+		studentList= new ArrayList<Student>();
+		
+		
 	}
 	
 	@Test // view items in the item bank 
@@ -303,6 +328,143 @@ public class C206_CaseStudyTest {
 		
 		weeklyMenuList = null;
 	}
+	
+	
+	@Test
+	public void testAddParents(){
+		// Item list is not null, so that can add a new item
+				assertNotNull("Test if there is valid parent arraylist to add to", parentList);
+				
+				//Given an empty list, after adding 1 item, the size of the list is 1
+				C206_CaseStudy.addAccount(parentList, p1);		
+				assertEquals("Test if that Parent arraylist size is 1?", 1, parentList.size());
+				
+				//The item just added is as same as the first item of the list
+				assertSame("Test that Parent is added same as 1st parent of the list?", p1, parentList.get(0));
+				
+				//Add another item. test The size of the list is 3?
+				C206_CaseStudy.addAccount(parentList, p2);
+				C206_CaseStudy.addAccount(parentList, p3);
+				assertEquals("Test that Parent arraylist size is 3?", 3, parentList.size());
+				assertSame("Test that Parent is added same as 3rd item of the list?", p3, parentList.get(2));
+	}
+	
+	@Test
+	public void testAddStudents() {
+		
+		// Item list is not null, so that can add a new item
+				assertNotNull("Test if there is valid student arraylist to add to", studentList);
+				
+				//Given an empty list, after adding 1 item, the size of the list is 1
+				C206_CaseStudy.addStudent(studentList, s1);		
+				assertEquals("Test if that student arraylist size is 1?", 1, studentList.size());
+				
+				//The item just added is as same as the first item of the list
+				assertSame("Test that student is added same as 1st item of the list?", s1, studentList.get(0));
+				
+				//Add another item. test The size of the list is 3?
+				C206_CaseStudy.addStudent(studentList, s2);
+				C206_CaseStudy.addStudent(studentList, s3);
+				assertEquals("Test that student arraylist size is 3?", 3, studentList.size());
+				assertSame("Test that student is added same as 3rd item of the list?", s3, studentList.get(2));
+	}
+	
+	
+	@Test
+	public void testretrieveAllParent() {
+		// Test if Item list is not null but empty, so that can add a new item
+		assertNotNull("Test if there is valid parent arraylist to add to", parentList);
+		
+		//test if the list of parents retrieved from the SourceCentre is empty
+		String allParent= C206_CaseStudy.retrieveAllParent(parentList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllParentlist", testOutput, allParent);
+				
+		//Given an empty list, after adding 2 items, test if the size of the list is 2
+		C206_CaseStudy.addAccount(parentList, p1);
+		C206_CaseStudy.addAccount(parentList, p2);
+		assertEquals("Test if that parent arraylist size is 2?", 2, parentList.size());
+		
+		//test if the expected output string same as the list of parents retrieved from the SourceCentre
+		allParent= C206_CaseStudy.retrieveAllParent(parentList);
+		
+		testOutput = String.format("%-10s %-15d %-15s %-20s %-5s\n","John lee", 200301,"P303043", "hayshyn3@gmail.com", "strawberryWongkar");
+		testOutput += String.format("%-10s %-15d %-15s %-20s %-5s\n",  "Kelly yeo", 200140, "P34310", "Kellyyeo@gmail.com", "CJBond321");
+	
+		assertEquals("Check that ViewAllParents", testOutput, allParent);
+		
+	}
+	
+	@Test
+	public void testretrieveAllStudents() {
+		// Test if Item list is not null but empty, so that can add a new item
+		assertNotNull("Test if there is valid student arraylist to add to", studentList);
+		
+		//test if the list of parents retrieved from the SourceCentre is empty
+		String allStudents= C206_CaseStudy.retrieveAllStudents(studentList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllStudentlist", testOutput, allStudents);
+				
+		//Given an empty list, after adding 2 items, test if the size of the list is 2
+		C206_CaseStudy.addStudent(studentList, s1);
+		C206_CaseStudy.addStudent(studentList, s2);
+		assertEquals("Test if that student arraylist size is 2?", 2, studentList.size());
+		
+		//test if the expected output string same as the list of parents retrieved
+		allStudents= C206_CaseStudy.retrieveAllStudents(studentList);
+		
+		testOutput += String.format("%-20s %-15s %-15s\n","John JR", 200301,"ClassADBEST");
+		testOutput += String.format("%-20s %-15s %-15s\n", "Sherlynn Yeo", 200140, "IFT2022AD" );
+	
+		assertEquals("Check that ViewAllStudents", testOutput, allStudents);
+		
+	}
+	
+	
+	
+	 @Test 
+	 public void testDeleteParent() {
+		  C206_CaseStudy.addAccount(parentList, p1);
+		  C206_CaseStudy.deleteAccount(parentList,p1.getParentID());
+		  assertEquals(0,parentList.size());
+		  
+		  boolean exists=false;
+		  for(Account p: parentList) {
+			  if(p.equals(p.getParentID()));  {
+				  exists=true;
+			  }
+		  
+		  }
+		  assertFalse(exists);
+		 
+
+
+		
+		  }
+			
+	
+	  @Test 
+	  public void testDeleteStudents() {
+		  C206_CaseStudy.addStudent(studentList, s1);
+		  C206_CaseStudy.deleteStudent(studentList, s1.getStudentID());
+		  assertEquals(0,studentList.size());
+	  
+		  boolean exists=false;
+		  for(Student s: studentList) {
+			  if(s.equals(s.getStudentID()));  {
+				  exists=true;
+		  }
+	  
+	  }
+	  assertFalse(exists);
+	 
+
+
+	
+	  }
+	
+	
+	
 
 
 

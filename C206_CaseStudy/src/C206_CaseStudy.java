@@ -73,7 +73,16 @@ public class C206_CaseStudy {
 		item_bank.add(new Item(35, "Fruit", "Papaya", "-", 3.50)); 
 		item_bank.add(new Item(35, "Fruit", "Orange", "-", 3.50)); 
 		item_bank.add(new Item(35, "Fruit", "Orange", "-", 3.50));
-
+		
+		
+		ArrayList<Account> parentList = new ArrayList<Account>();
+		ArrayList<Student> studentList= new ArrayList<Student>();
+		
+		parentList.add(new Account("John lee", 200301,"P303043", "hayshyn3@gmail.com", "strawberryWongkar"));
+		parentList.add(new Account("Kelly yeo", 200140, "P34310", "Kellyyeo@gmail.com", "CJBond321"));
+		studentList.add(new Student("John JR", 200301,"ClassADBEST"));
+		studentList.add(new Student("Sherlynn Yeo", 200140, "IFT2022AD" ));
+		
 		int loginoption = 0;
 		int adminoption = 0;
 		int useroption = 0;
@@ -128,11 +137,56 @@ public class C206_CaseStudy {
 						accountMenu();
 						int accmenu = Helper.readInt("Enter an option > ");
 						if (accmenu == 1) {
-							//
+							int itemType = Helper.readInt("Enter option to select to add student/parent > ");
+
+							if (itemType == 1) {
+								// Add a parent 
+								Account p = inputAccount();
+								C206_CaseStudy.addAccount(parentList, p);
+								System.out.println("Parent added");
+
+							} else if (itemType == 2) {
+								// Add a student
+								Student s = inputstudent();
+								C206_CaseStudy.addStudent(studentList, s);
+								System.out.println("Student added");
+
+							} else {
+								System.out.println("Invalid type");
+							}
 						} else if (accmenu == 2) {
-							//
+							int itemType = Helper.readInt("Enter option to view parent/children > ");
+
+							if (itemType == 1) {
+								// View parent
+								C206_CaseStudy.viewAllParent(parentList);
+								
+
+							} else if (itemType == 2) {
+								// View student
+								C206_CaseStudy.viewAllStudents(studentList);
+								
+				
+							} else {
+								System.out.println("Invalid");
+							}
+							
 						} else if (accmenu == 3) {
-							//
+							int itemType = Helper.readInt("Enter option to delete parent/children > ");
+
+							if (itemType == 1) {
+								// Delete parent
+								String delete_id = Helper.readString("Enter an Item ID to delete: ");
+								C206_CaseStudy.deleteAccount(parentList, delete_id);
+								System.out.println("Parent deleted!");
+								
+
+							} else if (itemType == 2) {
+								// Delete student
+							int delete_id = Helper.readInt("Enter an Item ID to delete: ");
+							C206_CaseStudy.deleteStudent(studentList, delete_id);
+							 System.out.println("Student deleted!");
+						
 						} else {
 							System.out.println("Invalid option");
 						}
@@ -210,6 +264,7 @@ public class C206_CaseStudy {
 					}
 
 				}
+				}
 			} else if (loginoption == 3) {
 				System.out.println("Logged out!");
 			} else {
@@ -248,8 +303,8 @@ public class C206_CaseStudy {
 
 	public static void accountMenu() {
 		C206_CaseStudy.setHeader("MAINTAIN ACCOUNT");
-		System.out.println("1. View account");
-		System.out.println("2. Add account");
+		System.out.println("1. Add account");
+		System.out.println("2. View account");
 		System.out.println("3. Delete account");
 		System.out.println("4. Update account");
 		System.out.println("5. Quit");
@@ -579,4 +634,112 @@ public class C206_CaseStudy {
 
 		}
 	}
+	
+	public static Account inputAccount() {
+		
+		String name = Helper.readString("Enter name > ");
+		int StudentID = Helper.readInt("Enter student ID > ");
+		String password = Helper.readString("Enter password > ");
+		String email= Helper.readString("Enter email address > ");
+		String parentID= Helper.readString("Enter parent ID > ");
+		
+		Account p = new Account(name, StudentID, password, email, parentID);
+		return p;
+
+	}
+
+	public static void addAccount(ArrayList<Account> parentList, Account p) {
+		// TODO Auto-generated method stub
+		parentList.add(p);
+		
+	}
+	
+	public static Student inputstudent() {
+		String name = Helper.readString("Enter name > ");
+		int StudentID = Helper.readInt("Enter student ID > ");
+		String password = Helper.readString("Enter password > ");
+
+		Student s = new Student(name, StudentID, password);
+		return s;
+
+	}
+	
+	public static void addStudent(ArrayList<Student> studentList, Student s) {
+		// TODO Auto-generated method stub
+		studentList.add(s);
+		
+	}
+	
+	
+	public static String retrieveAllParent(ArrayList<Account> parentList) {
+		// TODO Auto-generated method stub
+		String output="";
+		for (int i= 0; i < parentList.size();i++) {
+			output+=String.format("%-10s %-15d %-15s %-20s %-5s\n", 
+					parentList.get(i).getName(),parentList.get(i).getStudentID(),parentList.get(i).getParentID(),
+					parentList.get(i).getEmail(),
+					parentList.get(i).getPassword());
+		}
+		
+		return output;
+	}
+	
+	public static void viewAllParent(ArrayList<Account> parentList) {
+		// TODO Auto-generated method stub
+		C206_CaseStudy.setHeader("View parents");
+		String output = String.format("%-10s %-15s %-15s %-20s %-5s \n", "Name","Student ID" ,"Parent ID", "Email", "Password");
+		output+= retrieveAllParent(parentList);
+		
+		
+		System.out.print(output);
+	}
+	
+
+	public static String retrieveAllStudents(ArrayList<Student>studentList) {
+		// TODO Auto-generated method stub
+		String output="";
+		for (int i= 0; i < studentList.size();i++) {
+			output+=String.format("%-20s %-15d %-15s\n", studentList.get(i).getName(),
+					studentList.get(i).getStudentID(),studentList.get(i).getPassword());
+		}
+		
+		return output;
+	}
+	
+	public static void viewAllStudents(ArrayList<Student> studentList) {
+		// TODO Auto-generated method stub
+		C206_CaseStudy.setHeader("View students");
+		String output = String.format("%-20s %-15s %-15s\n", "Name","Student ID" ,"Password");
+		output+= retrieveAllStudents(studentList);
+		
+		
+		System.out.print(output);
+	}
+	
+	public static void deleteStudent(ArrayList<Student> studentList, int studentID) {
+	    boolean isDelete = false;
+	    
+	    for (int i = 0; i < studentList.size(); i++) {
+	      if (studentID==(studentList.get(i).getStudentID())){
+	        studentList.remove(i);
+	        isDelete = true;
+	      }
+	    }
+	  }
+	
+	
+	public static void deleteAccount(ArrayList<Account> parentList, String parentID) {
+		boolean isDelete = false;
+	    
+	    for (int i = 0; i < parentList.size(); i++) {
+	      if (parentID==(parentList.get(i).getParentID())){
+	        parentList.remove(i);
+	        isDelete = true;
+	      }
+	    }
+		
+	}
+	
+	
+	
 }

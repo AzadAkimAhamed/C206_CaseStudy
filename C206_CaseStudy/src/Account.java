@@ -3,31 +3,27 @@ public class Account extends Student{
 
 	private String password;
 	private double dailyAmountLimit;
-
-	public Account(String name, String NRIC, String password) {
-		super(name, NRIC);
-		this.password = password;
-		dailyAmountLimit = 0.0;
-	}
-	
-	public Account(String name, String NRIC, String password, double dailyAmountLimit) {
-		super(name, NRIC);
-		this.password = password;
-		this.dailyAmountLimit = dailyAmountLimit;
-
-	}
+	private String email;
+	private String ParentID;
 	
 	
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public Account(String name, int StudentID, String ParentID,String email, String password) {
+		super(name,StudentID,password);
+		this.email= email;
+		this.ParentID= ParentID;
+		
 	}
 	
-	public double getdailyAmountLimit() {
-		return dailyAmountLimit;
+	
+	public String getEmail() {
+		return email;
 	}
+
+	public String getParentID() {
+		return ParentID;
+	}
+	
+	
+	
 }
