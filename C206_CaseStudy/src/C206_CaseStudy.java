@@ -5,9 +5,9 @@ public class C206_CaseStudy {
 	public static void main(String[] args) {
 		ArrayList<Bill> billList = new ArrayList<Bill>();
 
-		billList.add(new Bill(11, "Western cuisine", "Watermelon", "Orange juice", 4.00));
-		billList.add(new Bill(22, "Japanese cuisine", "Grapes", "Strawberry Tea", 3.60));
-		billList.add(new Bill(9, "Vegeterian food", "Orange", "Milo", 2.00));
+		billList.add(new Bill(11, "Western cuisine", "Orange juice", "Watermelon", 4.00));
+		billList.add(new Bill(22, "Japanese cuisine", "Strawberry Tea", "Grapes", 3.60));
+		billList.add(new Bill(9, "Vegeterian food", "Milo", "Orange", 2.00));
 
 		ArrayList<DailyMenu> weeklyMenuList = new ArrayList<DailyMenu>();
 
@@ -23,66 +23,71 @@ public class C206_CaseStudy {
 				"Green Tea", "Grapes", "Honeydew", "Mango"));
 
 		ArrayList<Item> item_bank = new ArrayList<Item>(); // will contain 35 items (7 of each type)
-		item_bank.add(new Item(1, "Western", "Bolognese Pasta", "Spaghetti, Minced meat, Tomato sauce ", 3.50)); // Western1 - dailymenu1
+		item_bank.add(new Item(1, "Western", "Bolognese Pasta", "Spaghetti, Minced meat, Tomato sauce ", 3.50)); // Western1
+																													// -
+																													// dailymenu1
 		item_bank.add(new Item(6, "Asian", "Nasi Lemak", "Fragrant rice, Sambal, Eggs", 3.50)); // Asian1 - dailymenu1
-		item_bank.add(new Item(11, "Vegeterian", "Mixed Vegie Rice", "Rice, Mixed Vegetables", 3.50)); // Veggie1 - dailymenu1
+		item_bank.add(new Item(11, "Vegeterian", "Mixed Vegie Rice", "Rice, Mixed Vegetables", 3.50)); // Veggie1 -
+																										// dailymenu1
 		item_bank.add(new Item(16, "Cold beverage", "Strawberry tea", "Strawberry tea ", 3.50)); // Drink1 - dailymenu1
-		item_bank.add(new Item(21, "Juice", "Watermelon juice", "Crushed watermelon with ice", 3.50)); // Drink2 - dailymenu1
+		item_bank.add(new Item(21, "Juice", "Watermelon juice", "Crushed watermelon with ice", 3.50)); // Drink2 -
+																										// dailymenu1
 		item_bank.add(new Item(26, "Hot beverage", "Hot Milo", "Hot Milo", 3.50)); // Drink3 - dailymenu1
 		item_bank.add(new Item(31, "Fruit", "Watermelon", "-", 3.50)); // Fruit1 - dailymenu1
 		item_bank.add(new Item(31, "Fruit", "Apple", "-", 3.50)); // Fruit2 - dailymenu1
 		item_bank.add(new Item(31, "Fruit", "Orange", "-", 3.50)); // Fruit3 - dailymenu1
-		
-		item_bank.add(new Item(2, "Western", "Aglio Olio", "Sphaghetti, Mushroom, Chicken", 3.50)); //... - dailymenu2
-		item_bank.add(new Item(7, "Asian", "Bento rice", "Rice, Chicken Set, Vegetables", 3.50)); 
-		item_bank.add(new Item(12, "Vegeterian", "Chicken Rice", "Fragrant rice, Chicken, Sambal", 3.50)); 
-		item_bank.add(new Item(17, "Cold beverage", "Peach tea", "Peach tea ", 3.50)); 
-		item_bank.add(new Item(22, "Juice", "Orange juice", "Crushed orange with ice", 3.50)); 
-		item_bank.add(new Item(27, "Hot beverage", "Hot milo", "Hot milo", 3.50)); 
-		item_bank.add(new Item(32, "Fruit", "Pear", "-", 3.50)); 
-		item_bank.add(new Item(32, "Fruit", "Apple", "-", 3.50)); 
+
+		item_bank.add(new Item(2, "Western", "Aglio Olio", "Sphaghetti, Mushroom, Chicken", 3.50)); // ... - dailymenu2
+		item_bank.add(new Item(7, "Asian", "Bento rice", "Rice, Chicken Set, Vegetables", 3.50));
+		item_bank.add(new Item(12, "Vegeterian", "Chicken Rice", "Fragrant rice, Chicken, Sambal", 3.50));
+		item_bank.add(new Item(17, "Cold beverage", "Peach tea", "Peach tea ", 3.50));
+		item_bank.add(new Item(22, "Juice", "Orange juice", "Crushed orange with ice", 3.50));
+		item_bank.add(new Item(27, "Hot beverage", "Hot milo", "Hot milo", 3.50));
+		item_bank.add(new Item(32, "Fruit", "Pear", "-", 3.50));
+		item_bank.add(new Item(32, "Fruit", "Apple", "-", 3.50));
 		item_bank.add(new Item(32, "Fruit", "Papaya", "-", 3.50));
-		
-		item_bank.add(new Item(3, "Western", "Bolognese Pasta", "Spaghetti, Minced meat, Tomato sauce ", 3.50)); //... - dailymenu3
-		item_bank.add(new Item(8, "Asian", "Nasi Lemak", "Fragrant rice, Sambal, Eggs", 3.50)); 
-		item_bank.add(new Item(13, "Vegeterian", "Mixed Vegie Rice", "Rice, Mixed Vegetables", 3.50)); 
-		item_bank.add(new Item(18, "Cold beverage", "Strawberry tea", "Strawberry tea ", 3.50)); 
+
+		item_bank.add(new Item(3, "Western", "Bolognese Pasta", "Spaghetti, Minced meat, Tomato sauce ", 3.50)); // ...
+																													// -
+																													// dailymenu3
+		item_bank.add(new Item(8, "Asian", "Nasi Lemak", "Fragrant rice, Sambal, Eggs", 3.50));
+		item_bank.add(new Item(13, "Vegeterian", "Mixed Vegie Rice", "Rice, Mixed Vegetables", 3.50));
+		item_bank.add(new Item(18, "Cold beverage", "Strawberry tea", "Strawberry tea ", 3.50));
 		item_bank.add(new Item(23, "Juice", "Orange juice", "Crushed orange with ice", 3.50));
-		item_bank.add(new Item(28, "Hot beverage", "Hot milo", "Hot milo", 3.50)); 
-		item_bank.add(new Item(33, "Fruit", "Watermelon", "-", 3.50)); 
-		item_bank.add(new Item(33, "Fruit", "Apple", "-", 3.50)); 
-		item_bank.add(new Item(33, "Fruit", "Orange", "-", 3.50)); 
-		
-		
-		item_bank.add(new Item(4, "Western", "Aglio Olio", "Sphaghetti, Mushroom, Chicken", 3.50)); //... - dailymenu4
-		item_bank.add(new Item(9, "Asian", "Bento rice", "Rice, Chicken Set, Vegetables", 3.50)); 
-		item_bank.add(new Item(14, "Vegeterian", "Mixed Vegie Rice", "Rice, Mixed Vegetables", 3.50)); 
-		item_bank.add(new Item(19, "Cold beverage", "Peach tea", "Peach tea ", 3.50)); 
-		item_bank.add(new Item(24, "Juice", "Orange juice", "Crushed orange with ice", 3.50)); 
-		item_bank.add(new Item(29, "Hot beverage", "Hot milo", "Hot milo", 3.50)); 
-		item_bank.add(new Item(34, "Fruit", "Papaya", "-", 3.50)); 
-		item_bank.add(new Item(34, "Fruit", "Watermelon", "-", 3.50)); 
-		item_bank.add(new Item(34, "Fruit", "Orange", "-", 3.50)); 
-		
-		item_bank.add(new Item(5, "Western", "Fish & Chips", "Fried fish, Lemon, Tartar Sauce", 3.50)); //... - dailymenu5
-		item_bank.add(new Item(10, "Asian", "Ramen", "Noodles, Soup, Chicken", 3.50)); 
-		item_bank.add(new Item(15, "Vegeterian", "Egg wrap", "Tortilla wrap, Egg, Lettuce", 3.50)); 
-		item_bank.add(new Item(20, "Cold beverage", "Peach tea", "Peach tea ", 3.50)); 
-		item_bank.add(new Item(25, "Juice", "Orange juice", "Crushed orange with ice", 3.50));  
-		item_bank.add(new Item(30, "Hot beverage", "Hot milo", "Hot milo", 3.50)); 
-		item_bank.add(new Item(35, "Fruit", "Papaya", "-", 3.50)); 
-		item_bank.add(new Item(35, "Fruit", "Orange", "-", 3.50)); 
+		item_bank.add(new Item(28, "Hot beverage", "Hot milo", "Hot milo", 3.50));
+		item_bank.add(new Item(33, "Fruit", "Watermelon", "-", 3.50));
+		item_bank.add(new Item(33, "Fruit", "Apple", "-", 3.50));
+		item_bank.add(new Item(33, "Fruit", "Orange", "-", 3.50));
+
+		item_bank.add(new Item(4, "Western", "Aglio Olio", "Sphaghetti, Mushroom, Chicken", 3.50)); // ... - dailymenu4
+		item_bank.add(new Item(9, "Asian", "Bento rice", "Rice, Chicken Set, Vegetables", 3.50));
+		item_bank.add(new Item(14, "Vegeterian", "Mixed Vegie Rice", "Rice, Mixed Vegetables", 3.50));
+		item_bank.add(new Item(19, "Cold beverage", "Peach tea", "Peach tea ", 3.50));
+		item_bank.add(new Item(24, "Juice", "Orange juice", "Crushed orange with ice", 3.50));
+		item_bank.add(new Item(29, "Hot beverage", "Hot milo", "Hot milo", 3.50));
+		item_bank.add(new Item(34, "Fruit", "Papaya", "-", 3.50));
+		item_bank.add(new Item(34, "Fruit", "Watermelon", "-", 3.50));
+		item_bank.add(new Item(34, "Fruit", "Orange", "-", 3.50));
+
+		item_bank.add(new Item(5, "Western", "Fish & Chips", "Fried fish, Lemon, Tartar Sauce", 3.50)); // ... -
+																										// dailymenu5
+		item_bank.add(new Item(10, "Asian", "Ramen", "Noodles, Soup, Chicken", 3.50));
+		item_bank.add(new Item(15, "Vegeterian", "Egg wrap", "Tortilla wrap, Egg, Lettuce", 3.50));
+		item_bank.add(new Item(20, "Cold beverage", "Peach tea", "Peach tea ", 3.50));
+		item_bank.add(new Item(25, "Juice", "Orange juice", "Crushed orange with ice", 3.50));
+		item_bank.add(new Item(30, "Hot beverage", "Hot milo", "Hot milo", 3.50));
+		item_bank.add(new Item(35, "Fruit", "Papaya", "-", 3.50));
 		item_bank.add(new Item(35, "Fruit", "Orange", "-", 3.50));
-		
-		
+		item_bank.add(new Item(35, "Fruit", "Orange", "-", 3.50));
+
 		ArrayList<Account> parentList = new ArrayList<Account>();
-		ArrayList<Student> studentList= new ArrayList<Student>();
-		
-		parentList.add(new Account("John lee", 200301,"P303043", "hayshyn3@gmail.com", "strawberryWongkar"));
+		ArrayList<Student> studentList = new ArrayList<Student>();
+
+		parentList.add(new Account("John lee", 200301, "P303043", "hayshyn3@gmail.com", "strawberryWongkar"));
 		parentList.add(new Account("Kelly yeo", 200140, "P34310", "Kellyyeo@gmail.com", "CJBond321"));
-		studentList.add(new Student("John JR", 200301,"ClassADBEST"));
-		studentList.add(new Student("Sherlynn Yeo", 200140, "IFT2022AD" ));
-		
+		studentList.add(new Student("John JR", 200301, "ClassADBEST"));
+		studentList.add(new Student("Sherlynn Yeo", 200140, "IFT2022AD"));
+
 		int loginoption = 0;
 		int adminoption = 0;
 		int useroption = 0;
@@ -137,56 +142,11 @@ public class C206_CaseStudy {
 						accountMenu();
 						int accmenu = Helper.readInt("Enter an option > ");
 						if (accmenu == 1) {
-							int itemType = Helper.readInt("Enter option to select to add student/parent > ");
-
-							if (itemType == 1) {
-								// Add a parent 
-								Account p = inputAccount();
-								C206_CaseStudy.addAccount(parentList, p);
-								System.out.println("Parent added");
-
-							} else if (itemType == 2) {
-								// Add a student
-								Student s = inputstudent();
-								C206_CaseStudy.addStudent(studentList, s);
-								System.out.println("Student added");
-
-							} else {
-								System.out.println("Invalid type");
-							}
+							//
 						} else if (accmenu == 2) {
-							int itemType = Helper.readInt("Enter option to view parent/children > ");
-
-							if (itemType == 1) {
-								// View parent
-								C206_CaseStudy.viewAllParent(parentList);
-								
-
-							} else if (itemType == 2) {
-								// View student
-								C206_CaseStudy.viewAllStudents(studentList);
-								
-				
-							} else {
-								System.out.println("Invalid");
-							}
-							
+							//
 						} else if (accmenu == 3) {
-							int itemType = Helper.readInt("Enter option to delete parent/children > ");
-
-							if (itemType == 1) {
-								// Delete parent
-								String delete_id = Helper.readString("Enter an Item ID to delete: ");
-								C206_CaseStudy.deleteAccount(parentList, delete_id);
-								System.out.println("Parent deleted!");
-								
-
-							} else if (itemType == 2) {
-								// Delete student
-							int delete_id = Helper.readInt("Enter an Item ID to delete: ");
-							C206_CaseStudy.deleteStudent(studentList, delete_id);
-							 System.out.println("Student deleted!");
-						
+							//
 						} else {
 							System.out.println("Invalid option");
 						}
@@ -194,25 +154,12 @@ public class C206_CaseStudy {
 						menuItemMenu();
 						int menuitem = Helper.readInt("Enter an option > ");
 						if (menuitem == 1) {
-							viewAll_items(item_bank);
+							//
 						} else if (menuitem == 2) {
-							setHeader("ADD ITEM");
-							// Add item
-							Item new_item = inputDetails();
-							addItem(item_bank, new_item);
-							System.out.println("Item added!");
+							//
 						} else if (menuitem == 3) {
-							setHeader("DELETE ITEM");	
-							int delete_id = Helper.readInt("Enter an Item ID to delete: ");
-							C206_CaseStudy.deleteItem(item_bank, delete_id);
-							System.out.println("Item deleted!");
-						} else if (menuitem == 4) {
-							// Update item
-							setHeader("UPDATE");
-							updateItem(item_bank, menuitem);
-						} 
-						
-						else {
+							//
+						} else {
 							System.out.println("Invalid option");
 						}
 					} else if (adminoption == 3) {
@@ -227,10 +174,7 @@ public class C206_CaseStudy {
 							deleteWeeklyMenu(weeklyMenuList);
 						} else if (weeklymenu == 4) {
 							updateWeeklyMenu(weeklyMenuList);
-						} else if (weeklymenu == 5) {
-							System.out.println("Goodbye!");
-						}
-						else {
+						} else {
 							System.out.println("Invalid option");
 						}
 					} else if (adminoption == 4) {
@@ -249,11 +193,12 @@ public class C206_CaseStudy {
 						billMenu();
 						int bill = Helper.readInt("Enter an option > ");
 						if (bill == 1) {
-							//
+							ViewAllOrderBills(billList);
 						} else if (bill == 2) {
-							//
+							Bill b = inputOrderBill();
+							addOrderBill(billList, b);
 						} else if (bill == 3) {
-							//
+							deleteOrderBills(billList, bill);
 						} else {
 							System.out.println("Invalid option");
 						}
@@ -264,7 +209,6 @@ public class C206_CaseStudy {
 					}
 
 				}
-				}
 			} else if (loginoption == 3) {
 				System.out.println("Logged out!");
 			} else {
@@ -273,6 +217,7 @@ public class C206_CaseStudy {
 		}
 
 	}
+
 
 	public static void loginMenu() {
 		C206_CaseStudy.setHeader("LOGIN TO LUNCH BOX APP");
@@ -342,8 +287,8 @@ public class C206_CaseStudy {
 
 	public static void billMenu() {
 		C206_CaseStudy.setHeader("MAINTAIN ORDER BILL");
-		System.out.println("1. Create Order Bill");
-		System.out.println("2. View Order Bill");
+		System.out.println("1. View Order Bill");
+		System.out.println("2. Add Order Bill");
 		System.out.println("3. Delete Order Bill");
 		System.out.println("4. Quit");
 		Helper.line(80, "-");
@@ -368,78 +313,81 @@ public class C206_CaseStudy {
 		Helper.line(300, "-");
 	}
 
-	//================================= Option 1 View items =================================
-		public static String retrieveAll_items(ArrayList<Item> item_bank) {
-			String output = "";
+	// ================================= Option 1 View items
+	// =================================
+	public static String retrieveAll_items(ArrayList<Item> item_bank) {
+		String output = "";
 
-			for (int i = 0; i < item_bank.size(); i++) {
+		for (int i = 0; i < item_bank.size(); i++) {
 
-				output += String.format("%-10d %-10s %-10s %-100s %-20.2f\n", item_bank.get(i).get_itemID(),
-						item_bank.get(i).get_Category(),
-						item_bank.get(i).get_Name(), 
-						item_bank.get(i).get_Description(),
-						item_bank.get(i).get_Price());
-			}
-			return output;
+			output += String.format("%-10d %-10s %-10s %-100s %-20.2f\n", item_bank.get(i).get_itemID(),
+					item_bank.get(i).get_Category(), item_bank.get(i).get_Name(), item_bank.get(i).get_Description(),
+					item_bank.get(i).get_Price());
 		}
-		public static void viewAll_items(ArrayList<Item> item_bank) {
-			C206_CaseStudy.setHeader("VIEW ITEMS");
-			String output = String.format("%-10s %-10s %-10s %-100s %-20s\n", "ITEM ID", "CATEGORY",
-					"NAME", "DESCRIPTION","PRICE");
-			 output += retrieveAll_items(item_bank);	
-			System.out.println(output);
-		}
+		return output;
+	}
 
-		//================================= Option 2 Add an item =================================
-		public static Item inputDetails() {
-			 int itemID = Helper.readInt("Enter item ID: ");
-			 String category = Helper.readString("Enter category: ");
-			 String name = Helper.readString("Enter name: ");
-			 String description = Helper.readString("Enter description: ");
-			 double price = Helper.readDouble("Enter price: ");
-			
-			 Item new_item = new Item(itemID, category, name, description, price);
-			return new_item;
-		}
-		
-		public static void addItem(ArrayList<Item> item_bank, Item new_item) {
-			
-			item_bank.add(new_item);
-			
-		}
+	public static void viewAll_items(ArrayList<Item> item_bank) {
+		C206_CaseStudy.setHeader("VIEW ITEMS");
+		String output = String.format("%-10s %-10s %-10s %-100s %-20s\n", "ITEM ID", "CATEGORY", "NAME", "DESCRIPTION",
+				"PRICE");
+		output += retrieveAll_items(item_bank);
+		System.out.println(output);
+	}
 
-		//================================= Option 3 Delete an item =================================
-		public static void deleteItem(ArrayList<Item> item_bank, int itemID) {
-			boolean isDelete = false;
-			
-			for (int i = 0; i < item_bank.size(); i++) {
-				if (itemID==(item_bank.get(i).get_itemID())){
-					item_bank.remove(i);
-					isDelete = true;
-				}
-			}
-		}
+	// ================================= Option 2 Add an item
+	// =================================
+	public static Item inputDetails() {
+		int itemID = Helper.readInt("Enter item ID: ");
+		String category = Helper.readString("Enter category: ");
+		String name = Helper.readString("Enter name: ");
+		String description = Helper.readString("Enter description: ");
+		double price = Helper.readDouble("Enter price: ");
 
-		//================================= Option 4 Update an item =================================
-		public static void updateItem(ArrayList<Item> item_bank, int itemID) {
-			boolean isUpdate = false;
-			int new_itemID = Helper.readInt("Enter item ID: ");
-			 String new_category = Helper.readString("Enter category: ");
-			 String new_name = Helper.readString("Enter name: ");
-			 String new_description = Helper.readString("Enter description: ");
-			 double new_price = Helper.readDouble("Enter price: ");
-			
-			for (int i = 0; i < item_bank.size(); i++) {
-				if (itemID==(item_bank.get(i).get_itemID())){
-					item_bank.get(i).set_itemID(new_itemID);
-					item_bank.get(i).set_Category(new_category);
-					item_bank.get(i).set_Name(new_name);
-					item_bank.get(i).set_Description(new_description);
-					item_bank.get(i).set_Price();
-					isUpdate = true;
-				}
+		Item new_item = new Item(itemID, category, name, description, price);
+		return new_item;
+	}
+
+	public static void addItem(ArrayList<Item> item_bank, Item new_item) {
+
+		item_bank.add(new_item);
+
+	}
+
+	// ================================= Option 3 Delete an item
+	// =================================
+	public static void deleteItem(ArrayList<Item> item_bank, int itemID) {
+		boolean isDelete = false;
+
+		for (int i = 0; i < item_bank.size(); i++) {
+			if (itemID == (item_bank.get(i).get_itemID())) {
+				item_bank.remove(i);
+				isDelete = true;
 			}
 		}
+	}
+
+	// ================================= Option 4 Update an item
+	// =================================
+	public static void updateItem(ArrayList<Item> item_bank, int itemID) {
+		boolean isUpdate = false;
+		int new_itemID = Helper.readInt("Enter item ID: ");
+		String new_category = Helper.readString("Enter category: ");
+		String new_name = Helper.readString("Enter name: ");
+		String new_description = Helper.readString("Enter description: ");
+		double new_price = Helper.readDouble("Enter price: ");
+
+		for (int i = 0; i < item_bank.size(); i++) {
+			if (itemID == (item_bank.get(i).get_itemID())) {
+				item_bank.get(i).set_itemID(new_itemID);
+				item_bank.get(i).set_Category(new_category);
+				item_bank.get(i).set_Name(new_name);
+				item_bank.get(i).set_Description(new_description);
+				item_bank.get(i).set_Price();
+				isUpdate = true;
+			}
+		}
+	}
 
 	// ================================= Option 1 Create weekly menu
 	// =================================
@@ -589,7 +537,7 @@ public class C206_CaseStudy {
 		String output = "";
 
 		for (int i = 0; i < billList.size(); i++) {
-			output += String.format("%-15d %-15s %-30s %-10s %-15.2f\n", billList.get(i).getBill_id(),
+			output += String.format("%-10d %-25s %-20s %-20s %-15.2f\n", billList.get(i).getBill_id(),
 					billList.get(i).getMeal(), billList.get(i).getDrink(), billList.get(i).getFruit(),
 					billList.get(i).getAmount());
 		}
@@ -598,8 +546,7 @@ public class C206_CaseStudy {
 
 	public static void ViewAllOrderBills(ArrayList<Bill> billList) {
 
-		String output = String.format("%-15d %-15s %-30s %-10s %-15.2f\n", "BILL ID", "MEAL", "DRINK", "FRUIT",
-				"AMOUNT");
+		String output = String.format("%-10s %-25s %-20s %-20s %-15s\n", "BILL ID", "MEAL", "DRINK", "FRUIT", "AMOUNT");
 		output += retreiveAllOrderBills(billList);
 		System.out.println(output);
 	}
@@ -634,15 +581,15 @@ public class C206_CaseStudy {
 
 		}
 	}
-	
+
 	public static Account inputAccount() {
-		
+
 		String name = Helper.readString("Enter name > ");
 		int StudentID = Helper.readInt("Enter student ID > ");
 		String password = Helper.readString("Enter password > ");
-		String email= Helper.readString("Enter email address > ");
-		String parentID= Helper.readString("Enter parent ID > ");
-		
+		String email = Helper.readString("Enter email address > ");
+		String parentID = Helper.readString("Enter parent ID > ");
+
 		Account p = new Account(name, StudentID, password, email, parentID);
 		return p;
 
@@ -651,9 +598,9 @@ public class C206_CaseStudy {
 	public static void addAccount(ArrayList<Account> parentList, Account p) {
 		// TODO Auto-generated method stub
 		parentList.add(p);
-		
+
 	}
-	
+
 	public static Student inputstudent() {
 		String name = Helper.readString("Enter name > ");
 		int StudentID = Helper.readInt("Enter student ID > ");
@@ -663,83 +610,76 @@ public class C206_CaseStudy {
 		return s;
 
 	}
-	
+
 	public static void addStudent(ArrayList<Student> studentList, Student s) {
 		// TODO Auto-generated method stub
 		studentList.add(s);
-		
+
 	}
-	
-	
+
 	public static String retrieveAllParent(ArrayList<Account> parentList) {
 		// TODO Auto-generated method stub
-		String output="";
-		for (int i= 0; i < parentList.size();i++) {
-			output+=String.format("%-10s %-15d %-15s %-20s %-5s\n", 
-					parentList.get(i).getName(),parentList.get(i).getStudentID(),parentList.get(i).getParentID(),
-					parentList.get(i).getEmail(),
+		String output = "";
+		for (int i = 0; i < parentList.size(); i++) {
+			output += String.format("%-10s %-15d %-15s %-20s %-5s\n", parentList.get(i).getName(),
+					parentList.get(i).getStudentID(), parentList.get(i).getParentID(), parentList.get(i).getEmail(),
 					parentList.get(i).getPassword());
 		}
-		
+
 		return output;
 	}
-	
+
 	public static void viewAllParent(ArrayList<Account> parentList) {
 		// TODO Auto-generated method stub
 		C206_CaseStudy.setHeader("View parents");
-		String output = String.format("%-10s %-15s %-15s %-20s %-5s \n", "Name","Student ID" ,"Parent ID", "Email", "Password");
-		output+= retrieveAllParent(parentList);
-		
-		
+		String output = String.format("%-10s %-15s %-15s %-20s %-5s \n", "Name", "Student ID", "Parent ID", "Email",
+				"Password");
+		output += retrieveAllParent(parentList);
+
 		System.out.print(output);
 	}
-	
 
-	public static String retrieveAllStudents(ArrayList<Student>studentList) {
+	public static String retrieveAllStudents(ArrayList<Student> studentList) {
 		// TODO Auto-generated method stub
-		String output="";
-		for (int i= 0; i < studentList.size();i++) {
-			output+=String.format("%-20s %-15d %-15s\n", studentList.get(i).getName(),
-					studentList.get(i).getStudentID(),studentList.get(i).getPassword());
+		String output = "";
+		for (int i = 0; i < studentList.size(); i++) {
+			output += String.format("%-20s %-15d %-15s\n", studentList.get(i).getName(),
+					studentList.get(i).getStudentID(), studentList.get(i).getPassword());
 		}
-		
+
 		return output;
 	}
-	
+
 	public static void viewAllStudents(ArrayList<Student> studentList) {
 		// TODO Auto-generated method stub
 		C206_CaseStudy.setHeader("View students");
-		String output = String.format("%-20s %-15s %-15s\n", "Name","Student ID" ,"Password");
-		output+= retrieveAllStudents(studentList);
-		
-		
+		String output = String.format("%-20s %-15s %-15s\n", "Name", "Student ID", "Password");
+		output += retrieveAllStudents(studentList);
+
 		System.out.print(output);
 	}
-	
+
 	public static void deleteStudent(ArrayList<Student> studentList, int studentID) {
-	    boolean isDelete = false;
-	    
-	    for (int i = 0; i < studentList.size(); i++) {
-	      if (studentID==(studentList.get(i).getStudentID())){
-	        studentList.remove(i);
-	        isDelete = true;
-	      }
-	    }
-	  }
-	
-	
+		boolean isDelete = false;
+
+		for (int i = 0; i < studentList.size(); i++) {
+			if (studentID == (studentList.get(i).getStudentID())) {
+				studentList.remove(i);
+				isDelete = true;
+			}
+		}
+	}
+
 	public static void deleteAccount(ArrayList<Account> parentList, String parentID) {
 		boolean isDelete = false;
-	    
-	    for (int i = 0; i < parentList.size(); i++) {
-	      if (parentID==(parentList.get(i).getParentID())){
-	        parentList.remove(i);
-	        isDelete = true;
-	      }
-	    }
-		
+
+		for (int i = 0; i < parentList.size(); i++) {
+			if (parentID == (parentList.get(i).getParentID())) {
+				parentList.remove(i);
+				isDelete = true;
+			}
+		}
+
 	}
-	
-	
-	
+
 }
