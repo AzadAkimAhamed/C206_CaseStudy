@@ -8,7 +8,7 @@ public class LunchBoxOrder {
 	private String drink;
 	private String fruit;
 
-	public LunchBoxOrder(int orderID, String date, String setmeal, String drink, String food, double price) {
+	public LunchBoxOrder(int orderID, String date, String setmeal, String drink, String fruit, double price) {
 		this.OrderID = orderID;
 		this.date = date;
 		this.price = price;
@@ -66,9 +66,5 @@ public class LunchBoxOrder {
 		this.fruit = fruit;
 	}
 
-	public static void add(LunchBoxOrder lunchBoxOrder) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

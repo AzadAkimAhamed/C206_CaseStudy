@@ -5,11 +5,11 @@ public class C206_CaseStudy {
 	public static void main(String[] args) {
 
 		ArrayList<LunchBoxOrder> LunchBoxOrderList = new ArrayList<LunchBoxOrder>();
-		LunchBoxOrder.add(new LunchBoxOrder(1, "7/8/22", "Western cusine", "Orange Juice", "Watermelon", 4.00));
-		LunchBoxOrder.add(new LunchBoxOrder(2, "8/8/22", "Japanese cusine", "apple Juice", "Apple", 3.60));
-		LunchBoxOrder.add(new LunchBoxOrder(3, "9/8/22", "Vegeterian cusine", "Grapes Juice", "Orange", 4.10));
-		LunchBoxOrder.add(new LunchBoxOrder(4, "10/8/22", "Malay cusine", "strawberry Juice", "Strawberry", 4.20));
-		LunchBoxOrder.add(new LunchBoxOrder(5, "11/8/22", "Indian cusine", "HoneyDew Juice", "Mango", 3.80));
+		LunchBoxOrderList.add(new LunchBoxOrder(1, "7/8/22", "Western cusine", "Orange Juice", "Watermelon", 4.00));
+		LunchBoxOrderList.add(new LunchBoxOrder(2, "8/8/22", "Japanese cusine", "apple Juice", "Apple", 3.60));
+		LunchBoxOrderList.add(new LunchBoxOrder(3, "9/8/22", "Vegeterian cusine", "Grapes Juice", "Orange", 4.10));
+		LunchBoxOrderList.add(new LunchBoxOrder(4, "10/8/22", "Malay cusine", "strawberry Juice", "Strawberry", 4.20));
+		LunchBoxOrderList.add(new LunchBoxOrder(5, "11/8/22", "Indian cusine", "HoneyDew Juice", "Mango", 3.80));
 
 		ArrayList<Bill> billList = new ArrayList<Bill>();
 
@@ -120,7 +120,8 @@ public class C206_CaseStudy {
 						lunchBoxMenu();
 						int lunchbox = Helper.readInt("Enter an option > ");
 						if (lunchbox == 1) {
-							retrieveAllLunchBoxOrder(LunchBoxOrderList);
+							ViewAllLunchBoxOrder(LunchBoxOrderList);
+							System.out.println();
 						} else if (lunchbox == 2) {
 							LunchBoxOrder bo = inputLunchBoxOrder();
 							AddLunchBox(LunchBoxOrderList, bo);
@@ -229,7 +230,7 @@ public class C206_CaseStudy {
 								lunchBoxMenu();
 								int lunchbox = Helper.readInt("Enter an option > ");
 								if (lunchbox == 1) {
-									retrieveAllLunchBoxOrder(LunchBoxOrderList);
+									ViewAllLunchBoxOrder(LunchBoxOrderList);
 								} else if (lunchbox == 2) {
 									LunchBoxOrder bo = inputLunchBoxOrder();
 									AddLunchBox(LunchBoxOrderList, bo);
@@ -755,21 +756,21 @@ public static void accountMenu() {
 
 	// ================================= Option 1 Retrieve Lunch Box
 	// Order=================================
-	public static String retrieveAllLunchBoxOrder(ArrayList<LunchBoxOrder> LunchBoxorderList) {
+	public static String retrieveAllLunchBoxOrder(ArrayList<LunchBoxOrder> LunchBoxOrderList) {
 		String output = "";
-		for (LunchBoxOrder d : LunchBoxorderList) {
-			output += String.format("%-20s %-20s %-20s %-20s %-20s %-20s\n", d.getOrderID(), d.getDate(),
+		for (LunchBoxOrder d : LunchBoxOrderList) {
+			output += String.format("%-10d %-10s %-20s %-20s %-20s %-20.2f\n", d.getOrderID(), d.getDate(),
 					d.getSetmeal(), d.getDrink(), d.getFruit(), d.getPrice());
 
 		}
 		return output;
 	}
 
-	public static void ViewAllLunchBoxOrder(ArrayList<LunchBoxOrder> LunchBoxorderList) {
+	public static void ViewAllLunchBoxOrder(ArrayList<LunchBoxOrder> LunchBoxOrderList) {
 		C206_CaseStudy.setHeader("LUNCHBOX ORDER LIST");
-		String output = String.format("%-15s %-15s %-15s %-30s %-45s %-10s\n", "ORDER ID", "DATE", "SET MEAL",
+		String output = String.format("%-10s %-10s %-20s %-20s %-20s %-20s\n", "ORDER ID", "DATE", "SET MEAL",
 				"DRINK SET", "FRUIT SET", "PRICE");
-		output += retrieveAllLunchBoxOrder(LunchBoxorderList);
+		output += retrieveAllLunchBoxOrder(LunchBoxOrderList);
 		System.out.println(output);
 	}
 
